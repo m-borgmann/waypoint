@@ -1,6 +1,6 @@
 ---
 name: waypoint-review
-description: Reviews an implementation for quality, simplicity, and readiness to ship. Produces a *Review Report*.
+description: Reviews an implementation for quality, simplicity, and readiness to ship. Produces a Review Report.
 disable-model-invocation: true
 ---
 

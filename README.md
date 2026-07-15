@@ -14,7 +14,7 @@ npx skills add m-borgmann/waypoint
 
 Or install the skills from this repository into your agent's skills directory.
 
-## ✨ Why choose waypoint?
+## ✨ Why waypoint?
 
 *waypoint* was built for the **agentic engineer** who wants to stay involved throughout the development cycle. It is not designed for unsupervised vibe coding, as it assumes a human is present at every phase. This makes it intentionally closer to traditional software engineering. It borrows the discipline of established practices while embracing the speed and leverage that modern language models provide.
 
@@ -30,7 +30,7 @@ Every change moves through five phases. Each phase produces an artifact that dow
 4. `waypoint-review`: evaluates quality and strips away unnecessary complexity. Produces a *Review Report*.
 5. `waypoint-ship`: generates changelog, commit message, and PR description. Produces a *Release Package*.
 
-The waypoint skill serves as an entry point, routing requests to the appropriate phase based on the available artifacts, so you can take a break and resume work exactly where you left off.
+The `waypoint` skill serves as an entry point, routing requests to the appropriate phase based on the available artifacts, so you can take a break and resume work exactly where you left off.
 
 All skills follow the [Agent Skills](https://agentskills.io/home) format.
 
@@ -52,16 +52,15 @@ All phases are **user-invocable only** so each phase starts deliberately, not op
 
 ### Recommended Tooling
 
-waypoint works best alongside tools that give agents access to real project context:
+*waypoint* works best alongside tools that give agents access to real project context:
 
 | Tool | Purpose |
 | ---- | ------- |
 | [Atlassian MCP](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/) | Issue and ticket retrieval |
 | [GitHub MCP](https://github.com/github/github-mcp-server) | Pull requests, checks, and repository context |
 | Browser MCP | End-to-end verification and UI testing |
-| Framework-specific MCPs | Docs and APIs for your stack |
 
-Tune skills to match your team's conventions such as branch naming, CI commands and review standards before adopting waypoint on a project.
+Optionally tune the skills to match your team's conventions such as branch naming, CI commands and review standards before fully adopting *waypoint* on a project.
 
 ## 📚 Artifacts
 

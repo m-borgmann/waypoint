@@ -1,6 +1,6 @@
 ---
 name: waypoint-ship
-description: Prepares release artifacts from an approved implementation for version control and deployment. Ensures CI checks pass. Produces a *Release Package*.
+description: Prepares release artifacts from an approved implementation for version control and deployment. Ensures CI checks pass. Produces a Release Package.
 disable-model-invocation: true
 ---
 
@@ -16,9 +16,9 @@ disable-model-invocation: true
    - Validate each artifact by invoking waypoints `util-artifact` skill.
 2. Verify the Implementation Report records an approval.
    - If approval is absent or the implementation is rejected, stop and report that shipping cannot proceed.
-3. Ensure the implementation passes all project-defined required CI checks (lint, tests, type-check, ...).
+3. Ensure the implementation passes all project-defined required CI checks.
    - If any check fails, notify the user which check failed
-   - If it is possible to automatically fix the check by running the CI (e.g. linting) do so. Otherwise stop and report.
+   - If it is possible to automatically fix it do so. Otherwise stop and report.
 4. Produce a **Release Package** using waypoints `util-artifact` skill.
    - Populate it using only information contained in the upstream artifacts.
 

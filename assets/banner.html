@@ -1,175 +1,290 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8" />
+    <title>Waypoint Banner</title>
 
-<style>
-    body {
-        max-width: 1280px;
-    }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    .container {
-        aspect-ratio: 4/1;
-        background: linear-gradient(45deg, rgba(252, 254, 255, 1) 0%, rgba(234, 244, 255, 1) 40%, rgba(207, 230, 255, 1) 100%);
-        border-radius: 12px;
-        align-content: center;
-        justify-items: center;
-        position: relative;
-        overflow: hidden;
-        outline: 2px solid #23395D20;
-        outline-offset: -12px;
-        outline-style: dashed;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
-    }
+        html,
+        body {
+            margin: 0;
+        }
 
-    .title-wrapper {
-        display: flex;
-        flex-direction: row;
-    }
+        body {
+            width: 1280px;
+            padding: 0;
+            font-family: "Inter", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    .title {
-        position: relative;
-        z-index: 1;
-        font-size: 120px;
-        margin-top: 12px;
-        font-weight: 700;
-        font-style: italic;
-        letter-spacing: 2px;
-        background-clip: text !important;
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent;
-        background: linear-gradient(45deg,
-                #6E97C9 0%,
-                #3B5F8A 45%,
-                #23395D 100%);
-    }
+        .container {
+            position: relative;
+            aspect-ratio: 4 / 1;
+            overflow: hidden;
+            border-radius: 18px;
+            background:
+                radial-gradient(circle at 20% 15%, rgba(82, 176, 255, .12), transparent 38%),
+                radial-gradient(circle at 80% 80%, rgba(108, 255, 203, .08), transparent 34%),
+                radial-gradient(circle at 65% 35%, rgba(104, 132, 255, .07), transparent 42%),
+                linear-gradient(135deg,
+                    #050b13 0%,
+                    #08101b 35%,
+                    #0c1524 100%);
+            border: 1px solid rgba(255,255,255,.06);
+            box-shadow:
+                inset 0 1px rgba(255,255,255,.035),
+                0 28px 70px rgba(0,0,0,.6);
+        }
 
-    .title-dot {
-        color: #6ec9ab;
-        z-index: 1;
-        font-size: 120px;
-        margin-top: 12px;
-        font-weight: 700;
-    }
+        /* decorative glow */
+        .container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at center,
+                    rgba(255,255,255,.03),
+                    transparent 65%);
+            pointer-events: none;
+        }
 
-    .subtitle {
-        margin-top: 12px;
-        font-weight: 400;
-        font-size: 28px;
-        color: #64738d;
-    }
+        /* inner border */
+        .container::after {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border-radius: 10px;
+            border: 1px dashed rgba(180,210,255,.08);
+            pointer-events: none;
+        }
 
-    .font-inter {
-        font-family: "Inter", sans-serif;
-        -webkit-font-smoothing: antialiased;
-    }
-</style>
+        .overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .noise {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: .04;
+            mix-blend-mode: soft-light;
+        }
+
+        .content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .title-wrapper {
+            padding-top: 12px;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+        }
+
+        .title {
+            padding: 0 12px 12px;
+            font-size: 118px;
+            font-weight: 800;
+            font-style: italic;
+            letter-spacing: 0;
+            line-height: 1;
+            background:
+                linear-gradient(180deg,
+                    #c5ebff 0%,
+                    #aed5ff 40%,
+                    #6ab0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow:
+                0 0 18px rgba(88,165,255,.16);
+        }
+
+        .title-dot {
+            margin-left: -12px;
+            padding-bottom: 12px;
+            font-size: 118px;
+            line-height: 1;
+            font-weight: 900;
+            color: #63f3c8;
+            text-shadow:
+                0 0 14px rgba(99,243,200,.45),
+                0 0 30px rgba(99,243,200,.18);
+        }
+
+        .pill {
+            font-weight: 400;
+            margin-top: 18px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.06);
+            color: rgba(230,240,255,.72);
+            font-size: 13px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            backdrop-filter: blur(12px);
+        }
+
+        .grid {
+            opacity: .08;
+        }
+    </style>
+</head>
 
 <body>
     <div class="container">
+        <!-- subtle grid -->
+        <svg class="overlay grid" viewBox="0 0 1280 320" preserveAspectRatio="none">
+            <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M40 0H0V40"
+                        fill="none"
+                        stroke="#8DBEFF"
+                        stroke-width=".25"/>
+                </pattern>
+            </defs>
+
+            <rect width="1280" height="320" fill="url(#grid)"/>
+        </svg>
+
+        <!-- stars and constellations -->
         <svg class="overlay" viewBox="0 0 1280 320" preserveAspectRatio="none">
-            <!-- ================= LEFT CONSTELLATIONS ================= -->
-            <!-- Cassiopeia -->
-            <g stroke="#23395D" stroke-width="1.5" opacity="0.10">
-                <line x1="55"  y1="265" x2="95"  y2="235"/>
-                <line x1="95"  y1="235" x2="140" y2="265"/>
-                <line x1="140" y1="265" x2="185" y2="235"/>
-                <line x1="185" y1="235" x2="225" y2="265"/>
-            </g>
-            <g fill="#23395D" opacity="0.8">
-                <circle cx="55"  cy="265" r="2"/>
-                <circle cx="95"  cy="235" r="2.5"/>
-                <circle cx="140" cy="265" r="2"/>
-                <circle cx="185" cy="235" r="2.3"/>
-                <circle cx="225" cy="265" r="2"/>
-            </g>
+            <defs>
+                <linearGradient id="lineGlow" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#5cc5ff"/>
+                    <stop offset="100%" stop-color="#7af0cf"/>
+                </linearGradient>
 
-            <!-- ================= RIGHT CONSTELLATIONS ================= -->
-            <!-- Orion -->
-            <g stroke="#23395D" stroke-width="1.5" opacity="0.10">
-                <line x1="1040" y1="86" x2="1095" y2="65" />
-                <line x1="1095" y1="65" x2="1150" y2="94" />
-                <line x1="1150" y1="94" x2="1205" y2="70" />
-                <line x1="1095" y1="65" x2="1125" y2="40" />
-            </g>
-            <g fill="#23395D" opacity="0.8">
-                <circle cx="1040" cy="86" r="2" />
-                <circle cx="1095" cy="65" r="2.5" />
-                <circle cx="1150" cy="94" r="2" />
-                <circle cx="1205" cy="70" r="2" />
-                <circle cx="1125" cy="40" r="1.8" />
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                    <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- left constellation -->
+            <g stroke="url(#lineGlow)"
+               stroke-width="1.4"
+               opacity=".28">
+
+                <line x1="60" y1="255" x2="95" y2="220"/>
+                <line x1="95" y1="220" x2="145" y2="255"/>
+                <line x1="145" y1="255" x2="188" y2="218"/>
+                <line x1="188" y1="218" x2="228" y2="255"/>
             </g>
 
-            <!-- Diamond -->
-            <g stroke="#23395D" stroke-width="1.4" opacity="0.10">
-                <line x1="1145" y1="235" x2="1170" y2="210"/>
-                <line x1="1170" y1="210" x2="1195" y2="235"/>
-                <line x1="1195" y1="235" x2="1170" y2="260"/>
-                <line x1="1170" y1="260" x2="1145" y2="235"/>
-            </g>
-            <g fill="#23395D" opacity="0.75">
-                <circle cx="1145" cy="235" r="2"/>
-                <circle cx="1170" cy="210" r="2"/>
-                <circle cx="1195" cy="235" r="2"/>
-                <circle cx="1170" cy="260" r="2"/>
+            <!-- right constellation -->
+            <g stroke="url(#lineGlow)"
+               stroke-width="1.4"
+               opacity=".28">
+
+                <line x1="1040" y1="80" x2="1095" y2="58"/>
+                <line x1="1095" y1="58" x2="1152" y2="90"/>
+                <line x1="1152" y1="90" x2="1205" y2="65"/>
+                <line x1="1095" y1="58" x2="1127" y2="35"/>
             </g>
 
-            <!-- ================= DOT STARS ================= -->
-            <g fill="#23395D">
-                <circle cx="40" cy="175" r="1.4" opacity=".45" />
-                <circle cx="95" cy="110" r="1.5" opacity=".45" />
-                <circle cx="115" cy="123" r="1.6" opacity=".50" />
+            <!-- stars -->
+            <g fill="#d4ecff" filter="url(#glow)">
+                <circle cx="60" cy="255" r="2"/>
+                <circle cx="95" cy="220" r="3"/>
+                <circle cx="145" cy="255" r="2"/>
+                <circle cx="188" cy="218" r="2.5"/>
+                <circle cx="228" cy="255" r="2"/>
 
-                <circle cx="1125" cy="145" r="1.8" opacity=".55" />
-                <circle cx="1235" cy="110" r="1.4" opacity=".45" />
+                <circle cx="1040" cy="80" r="2"/>
+                <circle cx="1095" cy="58" r="3"/>
+                <circle cx="1152" cy="90" r="2"/>
+                <circle cx="1205" cy="65" r="2"/>
+                <circle cx="1127" cy="35" r="2"/>
             </g>
 
-            <!-- ================= PLUS STARS ================= -->
-            <g stroke="#23395D" stroke-width="1.2" opacity="0.8">
-                <line x1="205" y1="95" x2="205" y2="107" />
-                <line x1="199" y1="101" x2="211" y2="101" />
+            <!-- floating stars -->
+            <g fill="#cfe8ff">
+                <circle cx="90" cy="90" r="1.5" opacity=".7"/>
+                <circle cx="165" cy="125" r="1.3" opacity=".5"/>
+                <circle cx="270" cy="55" r="1.2" opacity=".45"/>
 
-                <line x1="1090" y1="260" x2="1090" y2="272" />
-                <line x1="1084" y1="266" x2="1096" y2="266" />
+                <circle cx="1005" cy="260" r="1.4" opacity=".7"/>
+                <circle cx="1120" cy="150" r="1.6" opacity=".6"/>
+                <circle cx="1185" cy="245" r="1.4" opacity=".45"/>
             </g>
 
-            <!-- ================= X STARS ================= -->
-            <g stroke="#23395D" stroke-width="1.2" opacity=".75">
-                <line x1="155" y1="170" x2="165" y2="180" />
-                <line x1="165" y1="170" x2="155" y2="180" />
+            <!-- plus stars -->
+            <g stroke="#72d6ff" stroke-width="1.2" opacity=".55">
+                <line x1="240" y1="70" x2="240" y2="84"/>
+                <line x1="233" y1="77" x2="247" y2="77"/>
 
-                <line x1="1185" y1="165" x2="1195" y2="175" />
-                <line x1="1195" y1="165" x2="1185" y2="175" />
+                <line x1="1125" y1="250" x2="1125" y2="264"/>
+                <line x1="1118" y1="257" x2="1132" y2="257"/>
             </g>
 
-            <!-- ================= RING STARS ================= -->
-            <g fill="none" stroke="#23395D" stroke-width="1.3" opacity=".60">
-                <circle cx="85" cy="65" r="3" />
-                <circle cx="1225" cy="265" r="3.5" />
+            <!-- orbital ring -->
+            <g opacity=".10">
+                <circle cx="190" cy="75"
+                        r="26"
+                        fill="none"
+                        stroke="#6fdfff"/>
+
+                <circle cx="1085" cy="245"
+                        r="20"
+                        fill="none"
+                        stroke="#6ff0cf"/>
             </g>
         </svg>
 
-        <div class="title-wrapper">
-            <div class="title font-inter">
-                waypoint
+        <!-- subtle noise -->
+        <svg class="noise" viewBox="0 0 400 100" preserveAspectRatio="none">
+            <filter id="noiseFilter">
+                <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.9"
+                    numOctaves="2"/>
+            </filter>
+
+            <rect
+                width="100%"
+                height="100%"
+                filter="url(#noiseFilter)"/>
+        </svg>
+
+        <div class="content">
+            <div class="title-wrapper">
+                <div class="title">
+                    waypoint
+                </div>
+
+                <div class="title-dot">
+                    .
+                </div>
             </div>
 
-            <div class="title-dot font-inter">.</div>
-        </div>
-
-        <div class="subtitle font-inter">
-            an agentic engineering workflow
+            <div class="pill">
+                agentic • engineering • workflow
+            </div>
         </div>
     </div>
 </body>
-
 </html>

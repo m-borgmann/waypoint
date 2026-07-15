@@ -1,6 +1,6 @@
 ---
 name: waypoint-align
-description: Clarifies requirements and user intent. Produces an *Alignment Brief*.
+description: Clarifies requirements and user intent. Produces an Alignment Brief.
 disable-model-invocation: true
 ---
 
@@ -16,12 +16,13 @@ disable-model-invocation: true
    - If no specific request was provided, ask the user to describe the desired change.
    - If a referenced issue or ticket is available via tools, retrieve and use it. Otherwise proceed with user input.
 2. Identify ambiguities, missing information, conflicts and edge cases.
-3. Thoroughly ask clarifying questions about every aspect.
-   - When possible, provide multiple choices.
+3. Thoroughly ask clarifying questions about every aspect of the request.
+   - Provide multiple choices.
    - Group related questions.
    - Number each question.
-4. If clarification is required, stop and wait for interactive user feedback.
-   - User answers may introduce additional questions.
+   - If you have access to a question tool, use it.
+4. If clarification is required, stop and wait for user input.
+   - If answers by the user surface new ambiguities, ask follow-up questions.
 5. Once the requirements are clear, produce an **Alignment Brief** using waypoints `util-artifact` skill.
 
 ---

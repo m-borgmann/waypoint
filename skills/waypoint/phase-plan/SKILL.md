@@ -1,6 +1,6 @@
 ---
 name: waypoint-plan
-description: Produces an *Implementation Plan* from an existing *Alignment Brief*.
+description: Produces an *Implementation Plan* from an existing Alignment Brief.
 disable-model-invocation: true
 ---
 

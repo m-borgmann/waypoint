@@ -1,6 +1,6 @@
 ---
 name: waypoint-build
-description: Executes an *Implementation Plan* and produces an *Implementation Report*.
+description: Executes an Implementation Plan and produces an Implementation Report.
 disable-model-invocation: true
 ---
 
@@ -21,6 +21,7 @@ disable-model-invocation: true
    - Add concise code comments where behavior is non-obvious.
 3. After each task:
    - Verify that the implementation fulfils the task.
+   - Determine wether the implementation can be simplified.
    - Run the smallest meaningful verification available.
    - Resolve failures before continuing.
 4. Once all tasks are complete, produce an **Implementation Report** using waypoints `util-artifact` skill.

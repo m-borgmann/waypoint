@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-07-15
+
+### Changed
+
+- Redesigned repository banner (`assets/banner.html`, `assets/banner.webp`) with a dark visual theme
+- Polished README wording and recommended tooling section
+- Clarified `waypoint-align` question flow (choices, optional question tool, follow-ups)
+- Streamlined `waypoint-ship` CI verification wording
+- Normalized phase skill descriptions to plain artifact names
+
+### Added
+
+- `waypoint-build` now checks whether each task's implementation can be simplified after verification
+
 ## [1.0.0] - 2026-07-09
 
 Initial release of *waypoint*, an opinionated workflow for agentic engineering.
@@ -22,4 +36,5 @@ Initial release of *waypoint*, an opinionated workflow for agentic engineering.
 - Repository banner assets (`assets/banner.html`, `assets/banner.webp`)
 - MIT License
 
+[1.0.1]: https://github.com/m-borgmann/waypoint/releases/tag/v1.0.1
 [1.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v1.0.0
