@@ -29,6 +29,7 @@ The workflow is built from **actions**. Each core action produces an artifact.
 ## Process
 
 1. Determine the furthest completed core action from the available information.
+   - Review is complete only when **Review Findings** exist with **Status** `Approved`.
 2. Classify the request:
    - **Progress**: The user is advancing the workflow to the next incomplete core action.
    - **Revision**: The user is changing requirements, design or implementation for work that already has waypoint artifacts (including a new chat).
@@ -44,7 +45,7 @@ The workflow is built from **actions**. Each core action produces an artifact.
 ## Rules
 
 - Apply this workflow only when the user explicitly requested waypoint.
-- Route Progress requests to the earliest core action whose required artifact is unavailable.
+- Route Progress requests to the earliest core action whose required artifact is unavailable, or whose Review Findings are not `Approved`.
 - Route Revision requests back into the relevant completed action.
 - Route optional actions only when the user explicitly requests them.
 - After Revision work, update every affected artifact using waypoints `util-artifact` skill.

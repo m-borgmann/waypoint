@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `waypoint` router distinguishes Progress (core), Revision, and Optional routing
 - README explains actions vs phases and the core/optional split
 - Renamed build artifact to Build Log and review artifact to Review Findings
+- Reworked `waypoint-review` into a living findings loop with severity, status, and approval when no open blocking findings remain
 
 ## [1.1.0] - 2026-07-26
 

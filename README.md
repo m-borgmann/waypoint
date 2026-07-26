@@ -36,11 +36,15 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 1. `waypoint-align`: clarifies requirements and user intent. Produces an *Alignment Brief*.
 2. `waypoint-plan`: designs an implementation approach against the existing codebase. Produces an *Implementation Plan*.
 3. `waypoint-build`: executes tasks one at a time, verifying after each. Produces a *Build Log*.
-4. `waypoint-review`: evaluates quality and strips away unnecessary complexity. Produces *Review Findings*.
+4. `waypoint-review`: runs a living findings loop (full then incremental) until no open blocking issues remain. Produces *Review Findings*.
 
 **Optional actions** sit outside that core progression. Invoke them when you want; they are not required to progress through the four core actions:
 
 - `waypoint-ship`: generates changelog, commit message, and PR description. Produces a *Release Package*.
+
+**Utility actions** are shared helpers used by other actions:
+
+- `util-artifact`: creates, validates, and keeps workflow artifacts in sync.
 
 The `waypoint` skill serves as an entry point. It classifies each request as **Progress** (advance to the next incomplete core action), **Revision** (change work that already has artifacts, including from a new chat), or **Optional** (explicitly requested optional action), then routes to the appropriate action.
 
