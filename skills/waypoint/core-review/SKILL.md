@@ -23,11 +23,12 @@ disable-model-invocation: true
       - Faithful adherence to the upstream artifacts
       - Scope discipline
    - Standards Axis
+      - Code smells
       - Security and privacy
       - Stability and reliability
       - Data integrity and integration boundaries
       - Performance and scalability
-      - Maintainability, code smells, and conformance with the existing codebase
+      - Maintainability and conformance with the existing codebase
 4. Merge results into the living findings list.
    - Mark findings **fixed** when the current code clearly addresses them.
    - Mark findings **dismissed** only when the user explicitly dismisses them.
@@ -36,8 +37,9 @@ disable-model-invocation: true
    - Set **Status** to **Approved** only when there are no open blocking findings.
    - Otherwise set **Status** to **Changes requested**.
 6. If **Changes requested**, resolve open blocking findings one at a time.
-   - Present the finding and keep the user involved when judgment is required.
-   - Apply the smallest correct fix. Do not expand scope.
+   - Present the finding.
+   - Stop and ask the user when resolving a finding would require choosing among valid approaches, weaken a requirement, or expand the scope.
+   - Otherwise apply the smallest correct fix that is uniquely determined by upstream artifacts and the finding.
    - Verify the fix, mark the finding **fixed**, then return to step 2 for an incremental review.
 7. Finish when **Status** is **Approved**.
 
