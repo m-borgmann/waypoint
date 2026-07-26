@@ -53,6 +53,7 @@ Any necessary deviations from the Implementation Plan, including justification.
 - Match existing code style, naming conventions and comment language.
 - Verify each task before proceeding.
 - If you encounter dead code, debug logs, or dumps, explicitly flag them. Do not remove them without user confirmation.
+- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not revisit product or architectural decisions.
 - Do not make incidental improvements, refactor unrelated code or expand the scope in any way.
 

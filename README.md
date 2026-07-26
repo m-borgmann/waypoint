@@ -1,8 +1,15 @@
 <img width="1280" height="320" src="./assets/banner.webp" alt="waypoint banner">
 
+<div align="center">
+  
 # waypoint
 
-An opinionated workflow for agentic engineering. Guides you and your agents from problem discovery to production-ready code.
+An opinionated workflow for agentic engineering.  
+Guides you and your agents from problem discovery to production-ready code.
+
+</div>
+
+---
 
 ## 🚀 Getting Started
 
@@ -30,11 +37,13 @@ Every change moves through five phases. Each phase produces an artifact that dow
 4. `waypoint-review`: evaluates quality and strips away unnecessary complexity. Produces a *Review Report*.
 5. `waypoint-ship`: generates changelog, commit message, and PR description. Produces a *Release Package*.
 
-The `waypoint` skill serves as an entry point, routing requests to the appropriate phase based on the available artifacts, so you can take a break and resume work exactly where you left off.
+The `waypoint` skill serves as an entry point. It classifies each request as **Progress** (advance to the next incomplete phase) or **Revision** (change work that already has artifacts, including from a new chat), then routes to the appropriate phase.
 
 All skills follow the [Agent Skills](https://agentskills.io/home) format.
 
 ## 🌟 Best Practices
+
+*waypoint* runs only when you explicitly ask for it. Ordinary requests without that context use the normal agent flow.
 
 Start each phase in a **new chat** with a fresh context window. Pass the issue or ticket identifier when available alongside any additional information you like.
 
@@ -42,13 +51,14 @@ Start each phase in a **new chat** with a fresh context window. Pass the issue o
 /waypoint-align ABC-123 but ignore the last comment by john doe
 ```
 
-Or invoke the router and let it determine the next phase automatically:
+Or invoke the router and let it determine the correct phase automatically:
 
 ```
 /waypoint ABC-123
+/waypoint ABC-123 make the primary button blue
 ```
 
-All phases are **user-invocable only** so each phase starts deliberately, not opportunistically.
+Phases and the router are **user-invocable only**, so the workflow starts deliberately, not opportunistically.
 
 ### Recommended Tooling
 
@@ -73,6 +83,7 @@ All workflow outputs are stored in the project workspace:
 - `{ticket-slug}` — derived from the issue key (e.g. `ABC-123` → `abc-123`)
 - `{phase}` — `align`, `plan`, `build`, `review`, or `ship`
 - If an artifact for the same date already exists, it is updated in place
+- When working with *waypoint*, follow-ups and revisions will keep every affected artifact in sync with the newest agreed state
 
 Artifacts are the contract between phases and between agents.
 

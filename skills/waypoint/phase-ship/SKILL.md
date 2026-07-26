@@ -62,6 +62,7 @@ The impact the change has on the current semantic version.
 ## Rules
 
 - Communicate clearly and directly for human readers and maintainers.
+- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not infer, embellish, or introduce information that is not present upstream artifacts.
 
 ---

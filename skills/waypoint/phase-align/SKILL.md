@@ -20,7 +20,7 @@ disable-model-invocation: true
    - Provide multiple choices.
    - Group related questions.
    - Number each question.
-   - If you have access to a question tool, use it.
+   - If you have access to an interactive question tool like AskQuestions, use it. Otherwise fallback to chat.
 4. If clarification is required, stop and wait for user input.
    - If answers by the user surface new ambiguities, ask follow-up questions.
 5. Once the requirements are clear, produce an **Alignment Brief** using waypoints `util-artifact` skill.
@@ -56,6 +56,7 @@ All stated limitations (technical, functional, business, or environmental).
 
 - Focus only on requirements, not implementation details.
 - Explicitly state assumptions. If anything is unclear, ask before proceeding.
+- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not propose implementation details, architecture or code.
 - Do not write any code.
 

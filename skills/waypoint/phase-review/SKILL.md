@@ -68,6 +68,7 @@ Whether the implementation is:
 
 - Prefer the simplest implementation that correctly satisfies the requirements.
 - Question any additional changes that do not clearly contribute to the requested behavior.
+- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not implement fixes or expand the scope in any way beyond the stated requirements.
 - Do not report speculative issues. Assume the implementation is acceptable unless clear evidence to the contrary.
 
