@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Align
 
-**Step 1** of the *waypoint* workflow. Establish a shared understanding of **what** should be built.
+**First core action** of the *waypoint* workflow. Establishes a shared understanding of **what** should be built.
 
 ---
 
@@ -56,7 +56,7 @@ All stated limitations (technical, functional, business, or environmental).
 
 - Focus only on requirements, not implementation details.
 - Explicitly state assumptions. If anything is unclear, ask before proceeding.
-- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not propose implementation details, architecture or code.
 - Do not write any code.
 

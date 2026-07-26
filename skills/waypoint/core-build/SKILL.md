@@ -1,12 +1,12 @@
 ---
 name: waypoint-build
-description: Executes an Implementation Plan and produces an Implementation Report.
+description: Executes an Implementation Plan and produces a Build Log.
 disable-model-invocation: true
 ---
 
 # Build
 
-**Step 3** of the *waypoint* workflow. Execute the **Implementation Plan** one task at a time, continuously verifying progress until implementation is complete.
+**Third core action** of the *waypoint* workflow. Executes the **Implementation Plan** one task at a time, continuously verifying progress until implementation is complete.
 
 ---
 
@@ -24,11 +24,11 @@ disable-model-invocation: true
    - Determine wether the implementation can be simplified.
    - Run the smallest meaningful verification available.
    - Resolve failures before continuing.
-4. Once all tasks are complete, produce an **Implementation Report** using waypoints `util-artifact` skill.
+4. Once all tasks are complete, produce a **Build Log** using waypoints `util-artifact` skill.
 
 ---
 
-## Implementation Report
+## Build Log
 
 ### Completed Tasks
 
@@ -53,7 +53,7 @@ Any necessary deviations from the Implementation Plan, including justification.
 - Match existing code style, naming conventions and comment language.
 - Verify each task before proceeding.
 - If you encounter dead code, debug logs, or dumps, explicitly flag them. Do not remove them without user confirmation.
-- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not revisit product or architectural decisions.
 - Do not make incidental improvements, refactor unrelated code or expand the scope in any way.
 
@@ -63,4 +63,4 @@ Any necessary deviations from the Implementation Plan, including justification.
 
 Finish when:
 
-- An **Implementation Report** has been produced.
+- A **Build Log** has been produced.

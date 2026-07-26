@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Renamed workflow vocabulary from phases to actions; skill folders are now `action-*`
+- Artifact paths are now `.waypoint/{slug}/{action}.md` (one living file per action; dates removed)
+- Core actions are align, plan, build, and review; ship is an optional action invoked on demand
+- `waypoint` router distinguishes Progress (core), Revision, and Optional routing
+- README explains actions vs phases and the core/optional split
+- Renamed build artifact to Build Log and review artifact to Review Findings
+
 ## [1.1.0] - 2026-07-26
 
 ### Added

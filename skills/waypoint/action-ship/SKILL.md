@@ -6,15 +6,15 @@ disable-model-invocation: true
 
 # Ship
 
-**Step 5** of the *waypoint* workflow. Packages an approved implementation into release-ready artifacts. Includes documentation, changelog entry, commit message and pull request description.
+**Optional action** of the *waypoint* workflow. Packages an approved implementation into release-ready artifacts. Includes documentation, changelog entry, commit message and pull request description. Invoke when you want to ship.
 
 ---
 
 ## Process
 
-1. Read the Alignment Brief, Implementation Plan, Implementation Report and Review Report.
+1. Read the Alignment Brief, Implementation Plan, Build Log and Review Findings.
    - Validate each artifact by invoking waypoints `util-artifact` skill.
-2. Verify the Implementation Report records an approval.
+2. Verify the Review Findings record an approval.
    - If approval is absent or the implementation is rejected, stop and report that shipping cannot proceed.
 3. Ensure the implementation passes all project-defined required CI checks.
    - If any check fails, notify the user which check failed
@@ -62,7 +62,7 @@ The impact the change has on the current semantic version.
 ## Rules
 
 - Communicate clearly and directly for human readers and maintainers.
-- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not infer, embellish, or introduce information that is not present upstream artifacts.
 
 ---

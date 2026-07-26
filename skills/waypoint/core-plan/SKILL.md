@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Plan
 
-**Step 2** of the *waypoint* workflow. Determine **how** the requested change should be implemented.
+**Second core action** of the *waypoint* workflow. Determines **how** the requested change should be implemented.
 
 ---
 
@@ -60,7 +60,7 @@ Technical risks or constraints that could affect implementation, their impact an
 
 - Prefer extending existing architecture and patterns over introducing new ones.
 - Favor simple, incremental changes.
-- When this phase's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not write or modify code.
 - Do not revisit or question established decisions of the Alignment Brief.
 
