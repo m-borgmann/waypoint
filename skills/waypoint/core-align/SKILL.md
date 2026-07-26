@@ -16,7 +16,7 @@ disable-model-invocation: true
    - If no specific request was provided, ask the user to describe the desired change.
    - If a referenced issue or ticket is available via tools, retrieve and use it. Otherwise proceed with user input.
 2. Identify ambiguities, missing information, conflicts and edge cases.
-3. Thoroughly ask clarifying questions about every aspect of the request.
+3. Thoroughly ask clarifying questions about those gaps in the request.
    - For each question, briefly state relevant context to make it understandable.
    - Provide multiple choices.
    - Group related questions.
@@ -56,7 +56,7 @@ All stated limitations (technical, functional, business, or environmental).
 ## Rules
 
 - Focus only on requirements, not implementation details.
-- Explicitly state assumptions. If anything is unclear, ask before proceeding.
+- Explicitly state assumptions. Ask only when something would leave the brief ambiguous.
 - When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
 - Do not propose implementation details, architecture or code.
 - Do not write any code.

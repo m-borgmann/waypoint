@@ -16,7 +16,6 @@ disable-model-invocation: true
    - Validate it by invoking waypoints `util-artifact` skill.
 2. Execute tasks sequentially, one at a time.
    - Implement only what the task requires.
-   - Add concise code comments where behavior is non-obvious.
 3. After each task:
    - Verify that the implementation fulfils the task.
    - If the implementation can be simplified without losing behavior, do so.
@@ -49,7 +48,7 @@ Any necessary deviations from the Implementation Plan, including justification.
 - Give little weight to development effort when making technical decisions.
 - Prefer reusing existing patterns and components over inventing new ones.
 - Split units that are genuinely large or complex; do not extract tiny one-off files.
-- Match existing naming conventions and language.
+- Match the surrounding code's comment density, language, naming, and idiom.
 - Verify each task before proceeding.
 - If this change orphans code, remove it.
 - If you encounter pre-existing dead code, debug logs, or dumps, explicitly flag them. Do not remove them without user confirmation.

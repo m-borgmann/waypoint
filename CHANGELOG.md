@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-07-26
+
 ### Added
 
 - README notes that *waypoint* is designed for and most tested with Cursor, plus Claude Code install guidance
@@ -27,6 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `waypoint-ship` Release Package includes a Learnings section for project knowledge worth documenting
 - After producing an artifact, reply with only a file link and ask the user to review before the next action
 - `waypoint-align` clarifying questions include brief context and why they are asked
+- `waypoint-align` asks only until the Alignment Brief is unambiguous, not about every aspect of the request
+- `waypoint-build` matches surrounding comment density and idiom instead of prescribing when to comment
 
 ## [1.1.0] - 2026-07-26
 
@@ -73,6 +77,7 @@ Initial release of *waypoint*, an opinionated workflow for agentic engineering.
 - Repository banner assets (`assets/banner.html`, `assets/banner.webp`)
 - MIT License
 
+[2.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.0.0
 [1.1.0]: https://github.com/m-borgmann/waypoint/releases/tag/v1.1.0
 [1.0.1]: https://github.com/m-borgmann/waypoint/releases/tag/v1.0.1
 [1.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v1.0.0

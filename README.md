@@ -113,4 +113,5 @@ Add `.waypoint/` to your project's `.gitignore` if you do not want artifacts in 
 
 - Addy Osmani, Shubham Saboo, and Sokratis Kartakis: [The New SDLC With Vibe Coding](https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding)
 - Matt Pocock: [Skills For Real Engineers](https://github.com/mattpocock/skills)
+- Thariq Shihipar, Anthropic Technical Staff: [The new rules of context engineering](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models)
 - Code Rabbit: [Review Documentation](https://docs.coderabbit.ai/guides/code-review-overview)
