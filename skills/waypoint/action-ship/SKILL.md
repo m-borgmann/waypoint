@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Ship
 
-**Optional action** of the *waypoint* workflow. Packages an approved implementation into release-ready artifacts. Includes documentation, changelog entry, commit message and pull request description. Invoke when you want to ship.
+**Optional action** of the *waypoint* workflow. Packages an approved implementation into release-ready artifacts. Includes documentation, changelog entry, commit message options and pull request description. Invoke when you want to ship.
 
 ---
 
@@ -16,8 +16,9 @@ disable-model-invocation: true
    - Validate each artifact by invoking waypoints `util-artifact` skill.
 2. Verify the Review Findings **Status** is `Approved`.
    - If approval is absent, stop and report that shipping cannot proceed.
-3. Ensure the implementation passes all project-defined required CI checks.
-   - If any check fails, notify the user which check failed
+3. Ensure the implementation passes project-defined required CI checks.
+   - Skip checks whose surfaces did not change.
+   - If any check fails, notify the user which check failed.
    - If it is possible to automatically fix it do so. Otherwise stop and report.
 4. Produce a **Release Package** using waypoints `util-artifact` skill.
    - Populate it using only information contained in the upstream artifacts.
@@ -45,9 +46,9 @@ Omit section if there is nothing relevant.
 Rollback strategy, feature flag usage, or rollout considerations.
 Omit section if there is nothing relevant.
 
-### Commit Message
+### Commit Messages
 
-Conventional commit message.
+Three different conventional commit message options for the user to choose from.
 
 ### PR Description
 
@@ -56,6 +57,11 @@ Structured pull request description for reviewers and QA, including summary and 
 ### Semantic Versioning
 
 The impact the change has on the current semantic version.
+
+### Learnings
+
+Concrete documentation suggestions for what this ticket newly revealed about the project or codebase.
+Omit section if there is nothing to capture.
 
 ---
 

@@ -22,7 +22,10 @@ These guidelines apply to every artifact of the *waypoint* workflow.
 - If an artifact already exists for the action, update its content to reflect the newest state.
 - The artifact must contain only the action output in Markdown.
 
----
+### After Production
+
+- In the chat reply, link the artifact file first. Very briefly summarize its content.
+- Advise the user to review the artifact before proceeding to the next action.
 
 ## Artifact Maintenance
 

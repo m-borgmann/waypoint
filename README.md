@@ -13,11 +13,15 @@ Guides you and your agents from problem discovery to production-ready code.
 
 ## 🚀 Getting Started
 
+> **Note:** *waypoint* was tested most extensively with [Cursor](https://cursor.com). It also works with other agents that support the [Agent Skills](https://agentskills.io/home) format, but the experience may differ.
+
 Install using the [Vercel Skills CLI](https://github.com/vercel-labs/skills):
 
 ```bash
 npx skills add m-borgmann/waypoint
 ```
+
+When installing for [Claude Code](https://docs.anthropic.com/en/docs/claude-code), explicitly enable it in the CLI.
 
 Or install the skills from this repository into your agent's skills directory.
 
@@ -40,7 +44,7 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 
 **Optional actions** sit outside that core progression. Invoke them when you want; they are not required to progress through the four core actions:
 
-- `waypoint-ship`: generates changelog, commit message, and PR description. Produces a *Release Package*.
+- `waypoint-ship`: generates changelog, commit message options, and PR description. Produces a *Release Package*.
 
 **Utility actions** are shared helpers used by other actions:
 
@@ -76,8 +80,9 @@ Actions and the router are **user-invocable only**, so the workflow starts delib
 | Tool | Purpose |
 | ---- | ------- |
 | [Atlassian MCP](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/) | Issue and ticket retrieval |
+| [Figma MCP](https://developers.figma.com/docs/figma-mcp-server/) | Design context and design-to-code |
+| Browser | End-to-end UI self-verification (built into Cursor; otherwise use a Browser MCP) |
 | [GitHub MCP](https://github.com/github/github-mcp-server) | Pull requests, checks, and repository context |
-| Browser MCP | End-to-end verification and UI testing |
 
 Optionally tune the skills to match your team's conventions such as branch naming, CI commands and review standards before fully adopting *waypoint* on a project.
 
@@ -108,3 +113,4 @@ Add `.waypoint/` to your project's `.gitignore` if you do not want artifacts in 
 
 - Addy Osmani, Shubham Saboo, and Sokratis Kartakis: [The New SDLC With Vibe Coding](https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding)
 - Matt Pocock: [Skills For Real Engineers](https://github.com/mattpocock/skills)
+- Code Rabbit: [Review Documentation](https://docs.coderabbit.ai/guides/code-review-overview)

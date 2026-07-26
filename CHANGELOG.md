@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- README notes that *waypoint* is designed for and most tested with Cursor, plus Claude Code install guidance
+- Recommended Tooling now includes Figma MCP and clarifies browser self-verification (Cursor built-in vs Browser MCP)
+- README acknowledgments for Vercel Labs Skills and CodeRabbit
+
 ### Changed
 
 - Renamed workflow vocabulary from phases to actions; skill folders are now `action-*`
@@ -17,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Renamed build artifact to Build Log and review artifact to Review Findings
 - Reworked `waypoint-review` into a living findings loop with severity, status, and approval when no open blocking findings remain
 - Strengthened and clarified wording `waypoint-build` and `waypoint-review` mainly to enforce simplification
+- `waypoint-ship` Release Package now offers three conventional commit message options
+- `waypoint-ship` Release Package includes a Learnings section for project knowledge worth documenting
+- After producing an artifact, reply with only a file link and ask the user to review before the next action
+- `waypoint-align` clarifying questions include brief context and why they are asked
 
 ## [1.1.0] - 2026-07-26
 

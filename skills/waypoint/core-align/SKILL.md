@@ -17,6 +17,7 @@ disable-model-invocation: true
    - If a referenced issue or ticket is available via tools, retrieve and use it. Otherwise proceed with user input.
 2. Identify ambiguities, missing information, conflicts and edge cases.
 3. Thoroughly ask clarifying questions about every aspect of the request.
+   - For each question, briefly state relevant context to make it understandable.
    - Provide multiple choices.
    - Group related questions.
    - Number each question.
