@@ -4,7 +4,7 @@ description: Reviews an implementation in a living findings loop until no open b
 disable-model-invocation: true
 ---
 
-# Review
+# Review - Core Action
 
 **Fourth core action** of the *waypoint* workflow. Evaluates whether the implementation fulfils the **Alignment Brief** and **Implementation Plan** using the simplest implementation that correctly solves the problem. Continues until no open blocking findings remain.
 
@@ -13,7 +13,7 @@ disable-model-invocation: true
 ## Process
 
 1. Read the **Alignment Brief**, **Implementation Plan** and **Build Log**.
-   - Validate each artifact by invoking waypoints `util-artifact` skill.
+   - Validate each artifact by using `waypoint-artifact`.
 2. Load existing **Review Findings** if present.
    - If absent, run a **full review** of the entire implementation.
    - If present, run an **incremental review**: re-verify every open finding against the current code, then review only changes since the last pass.
@@ -33,7 +33,7 @@ disable-model-invocation: true
    - Mark findings **fixed** when the current code clearly addresses them.
    - Mark findings **dismissed** only when the user explicitly dismisses them.
    - Add new findings as **open**. Do not reopen fixed or dismissed findings without new evidence.
-5. Update **Review Findings** using waypoints `util-artifact` skill.
+5. Update **Review Findings** using `waypoint-artifact`.
    - Set **Status** to **Approved** only when there are no open blocking findings.
    - Otherwise set **Status** to **Changes requested**.
 6. If **Changes requested**, resolve open blocking findings one at a time.
@@ -63,6 +63,7 @@ For each finding include:
 - Status (`open`, `fixed`, or `dismissed`)
 - Location (file, symbol, or area when known)
 - Reason (why it matters)
+- Proposed fix
 - Resolution (required when `fixed` or `dismissed`: what changed, or why it was dismissed)
 
 Severity:
@@ -87,7 +88,7 @@ Include open blocking and open non-blocking counts.
 - Keep findings current: every review pass must refresh statuses against the code.
 - Fix only open blocking findings inside this action, and only with surgical changes.
 - Leave open non-blocking findings unless the user asks to address them.
-- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using `waypoint-artifact`.
 - Do not revisit product or architectural decisions from upstream artifacts.
 - Do not expand scope beyond the stated requirements.
 - Do not duplicate findings.

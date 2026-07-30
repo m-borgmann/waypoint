@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-07-30
+
+### Added
+
+- Artifacts reference [references/version.md](references/version.md) for the canonical waypoint version
+- Artifacts include a metadata footer with generation and update version
+
+### Changed
+
+- Reorganized skill folders under `core/`, `actions/`, and `utils/` with folder names matching frontmatter `name` values
+- Renamed `util-artifact` to `waypoint-artifact`
+- `waypoint-artifact` will now link affected artifacts in the chat response when they were updated
+- Redesigned repository banner (`assets/banner.html`, `assets/banner.html.png`)
+
 ## [2.0.0] - 2026-07-26
 
 ### Added
@@ -77,6 +91,7 @@ Initial release of *waypoint*, an opinionated workflow for agentic engineering.
 - Repository banner assets (`assets/banner.html`, `assets/banner.webp`)
 - MIT License
 
+[2.1.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.1.0
 [2.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.0.0
 [1.1.0]: https://github.com/m-borgmann/waypoint/releases/tag/v1.1.0
 [1.0.1]: https://github.com/m-borgmann/waypoint/releases/tag/v1.0.1

@@ -1,293 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Waypoint Banner</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            margin: 0;
-            background: transparent;
-        }
-
-        body {
-            width: 1280px;
-            padding: 0;
-            font-family: "Inter", sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            position: relative;
-            aspect-ratio: 4 / 1;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at 20% 15%, rgba(82, 176, 255, .12), transparent 38%),
-                radial-gradient(circle at 80% 80%, rgba(108, 255, 203, .08), transparent 34%),
-                radial-gradient(circle at 65% 35%, rgba(104, 132, 255, .07), transparent 42%),
-                linear-gradient(135deg,
-                    #050b13 0%,
-                    #08101b 35%,
-                    #0c1524 100%);
-        }
-
-        /* decorative glow */
-        .container::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(circle at center,
-                    rgba(255,255,255,.03),
-                    transparent 65%);
-            pointer-events: none;
-        }
-
-        /* inner border */
-        .container::after {
-            content: "";
-            position: absolute;
-            inset: 12px;
-            border-radius: 10px;
-            border: 1px dashed rgba(180,210,255,.08);
-            pointer-events: none;
-        }
-
-        .overlay {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .noise {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: .04;
-            mix-blend-mode: soft-light;
-        }
-
-        .content {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-        }
-
-        .title-wrapper {
-            padding-top: 12px;
-            display: flex;
-            align-items: flex-end;
-            gap: 2px;
-        }
-
-        .title {
-            padding: 0 12px 12px;
-            font-size: 140px;
-            font-weight: 800;
-            font-style: italic;
-            letter-spacing: 0;
-            line-height: 1;
-            background:
-                linear-gradient(180deg,
-                    #cfeeff 0%,
-                    #b6d9ff 40%,
-                    #92c5ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow:
-                0 0 18px rgba(88,165,255,.16);
-        }
-
-        .title-dot {
-            margin-left: -12px;
-            padding-bottom: 12px;
-            font-size: 118px;
-            line-height: 1;
-            font-weight: 900;
-            color: #63f3c8;
-            text-shadow:
-                0 0 14px rgba(99,243,200,.45),
-                0 0 30px rgba(99,243,200,.18);
-        }
-
-        .pill {
-            font-weight: 500;
-            margin-top: 24px;
-            padding: 8px 16px;
-            border-radius: 999px;
-            background: rgba(255,255,255,.035);
-            border: 1px solid rgba(255,255,255,.06);
-            color: rgba(230,240,255,.72);
-            font-size: 16px;
-            letter-spacing: .18em;
-            text-transform: uppercase;
-            backdrop-filter: blur(12px);
-        }
-
-        .title,
-        .title-dot,
-        .pill {
-            font-family: "Inter", sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .grid {
-            opacity: .08;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>repository banner</title>
 </head>
 
 <body>
-    <div class="container">
-        <!-- subtle grid -->
-        <svg class="overlay grid" viewBox="0 0 1280 320" preserveAspectRatio="none">
-            <defs>
-                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M40 0H0V40"
-                        fill="none"
-                        stroke="#8DBEFF"
-                        stroke-width=".25"/>
-                </pattern>
-            </defs>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
 
-            <rect width="1280" height="320" fill="url(#grid)"/>
-        </svg>
+    <style>
+        html,
+        body {
+            margin: 0;
+            background: #212428;
+        }
+    </style>
 
-        <!-- stars and constellations -->
-        <svg class="overlay" viewBox="0 0 1280 320" preserveAspectRatio="none">
-            <defs>
-                <linearGradient id="lineGlow" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#5cc5ff"/>
-                    <stop offset="100%" stop-color="#7af0cf"/>
-                </linearGradient>
+    <div
+        style="width: 1280px; height: 320px; position: relative; overflow: hidden; font-family: 'Inter Tight', 'Helvetica Neue', Helvetica, sans-serif; -webkit-font-smoothing: antialiased; background: radial-gradient(95% 170% at 20% 0%, rgba(146,180,220,0.13), rgba(146,180,220,0) 58%), radial-gradient(80% 150% at 86% 100%, rgba(92,180,168,0.10), rgba(92,180,168,0) 60%), linear-gradient(158deg, #0d1115 0%, #141920 30%, #1b212a 52%, #151a21 74%, #0e1116 100%);">
 
-                <filter id="glow">
-                    <feGaussianBlur stdDeviation="2.5" result="blur"/>
-                    <feMerge>
-                        <feMergeNode in="blur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                </filter>
-            </defs>
+        <div
+            style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.35) 0.6px, transparent 0.7px); background-size: 6px 6px; opacity: 0.07; mix-blend-mode: overlay; pointer-events: none;">
+        </div>
 
-            <!-- left constellation -->
-            <g stroke="url(#lineGlow)"
-               stroke-width="1.4"
-               opacity=".28">
+        <div
+            style="position: absolute; inset: 0; background: radial-gradient(85% 115% at 50% 42%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 45%, rgba(6,9,13,0.34) 100%); pointer-events: none;">
+        </div>
 
-                <line x1="60" y1="255" x2="95" y2="220"/>
-                <line x1="95" y1="220" x2="145" y2="255"/>
-                <line x1="145" y1="255" x2="188" y2="218"/>
-                <line x1="188" y1="218" x2="228" y2="255"/>
-            </g>
+        <div
+            style="position: absolute; top: -170px; left: 60px; width: 520px; height: 360px; border-radius: 50%; background: rgba(150,190,235,0.16); filter: blur(120px); pointer-events: none;">
+        </div>
+        <div
+            style="position: absolute; bottom: -200px; right: 90px; width: 560px; height: 400px; border-radius: 50%; background: rgba(88,200,182,0.13); filter: blur(130px); pointer-events: none;">
+        </div>
 
-            <!-- right constellation -->
-            <g stroke="url(#lineGlow)"
-               stroke-width="1.4"
-               opacity=".28">
+        <!-- Motifs -->
+        <div
+            style="position: absolute; inset: 14px; border-radius: 14px; overflow: hidden; z-index: 1; pointer-events: none; -webkit-mask-image: radial-gradient(62% 134% at 50% 50%, rgba(0,0,0,0.06) 30%, rgba(0,0,0,0.55) 64%, #000 100%); mask-image: radial-gradient(62% 134% at 50% 50%, rgba(0,0,0,0.06) 30%, rgba(0,0,0,0.55) 64%, #000 100%);">
+            <svg width="1252" height="292" viewBox="0 0 1252 292" style="display: block;">
+                <g stroke="#bcd6f0" fill="none">
+                    <path d="M-40 190 C 200 96, 1052 96, 1292 190" stroke-opacity="0.07" stroke-width="1.2" />
+                    <path d="M-40 232 C 210 148, 1042 148, 1292 232" stroke-opacity="0.045" stroke-width="1.2" />
+                    <g stroke-opacity="0.09" stroke-width="1">
+                        <circle cx="64" cy="250" r="19" />
+                        <circle cx="64" cy="250" r="36" stroke-opacity="0.06" />
+                        <circle cx="64" cy="250" r="55" stroke-opacity="0.035" />
+                        <circle cx="1196" cy="48" r="16" />
+                        <circle cx="1196" cy="48" r="31" stroke-opacity="0.06" />
+                        <circle cx="1196" cy="48" r="48" stroke-opacity="0.035" />
+                    </g>
+                    <g stroke-opacity="0.16" stroke-width="1" stroke-linecap="round">
+                        <path d="M282 34 h12 M288 28 v12" />
+                        <path d="M246 272 h12 M252 266 v12" />
+                        <path d="M986 26 h12 M992 20 v12" />
+                        <path d="M1112 268 h12 M1118 262 v12" />
+                        <path d="M40 132 h12 M46 126 v12" />
+                        <path d="M1212 152 h12 M1218 146 v12" />
+                    </g>
 
-                <line x1="1040" y1="80" x2="1095" y2="58"/>
-                <line x1="1095" y1="58" x2="1152" y2="90"/>
-                <line x1="1152" y1="90" x2="1205" y2="65"/>
-                <line x1="1095" y1="58" x2="1127" y2="35"/>
-            </g>
+                    <g stroke-width="1">
+                        <rect x="418" y="52" width="58" height="58" stroke-opacity="0.14" />
+                        <rect x="404" y="38" width="86" height="86" stroke-opacity="0.1" />
+                        <rect x="836" y="176" width="46" height="46" transform="rotate(18 859 199)"
+                            stroke-opacity="0.09" />
+                        <rect x="150" y="150" width="34" height="34" transform="rotate(-12 167 167)"
+                            stroke-opacity="0.15" />
+                        <rect x="1064" y="96" width="40" height="40" transform="rotate(30 1084 116)"
+                            stroke-opacity="0.055" />
+                    </g>
 
-            <!-- stars -->
-            <g fill="#d4ecff" filter="url(#glow)">
-                <circle cx="60" cy="255" r="2"/>
-                <circle cx="95" cy="220" r="3"/>
-                <circle cx="145" cy="255" r="2"/>
-                <circle cx="188" cy="218" r="2.5"/>
-                <circle cx="228" cy="255" r="2"/>
+                    <g stroke-width="1">
+                        <circle cx="868" cy="66" r="26" stroke-opacity="0.11" />
+                        <circle cx="868" cy="66" r="44" stroke-opacity="0.04" />
+                        <circle cx="300" cy="196" r="30" stroke-opacity="0.075" />
+                        <circle cx="940" cy="252" r="22" stroke-opacity="0.14" />
+                        <circle cx="512" cy="232" r="14" stroke-opacity="0.05" />
+                    </g>
 
-                <circle cx="1040" cy="80" r="2"/>
-                <circle cx="1095" cy="58" r="3"/>
-                <circle cx="1152" cy="90" r="2"/>
-                <circle cx="1205" cy="65" r="2"/>
-                <circle cx="1127" cy="35" r="2"/>
-            </g>
+                    <g stroke-width="1" stroke-linecap="round">
+                        <path d="M612 250 h12 M618 244 v12" stroke-opacity="0.18" />
+                        <path d="M420 108 h12 M426 102 v12" stroke-opacity="0.08" />
+                        <path d="M840 118 h12 M846 112 v12" stroke-opacity="0.14" />
+                        <path d="M172 214 h12 M178 208 v12" stroke-opacity="0.06" />
+                        <path d="M1064 214 h12 M1070 208 v12" stroke-opacity="0.16" />
+                        <path d="M336 66 h12 M342 60 v12" stroke-opacity="0.09" />
+                        <path d="M916 60 h12 M922 54 v12" stroke-opacity="0.05" />
+                    </g>
 
-            <!-- floating stars -->
-            <g fill="#cfe8ff">
-                <circle cx="90" cy="90" r="1.5" opacity=".7"/>
-                <circle cx="165" cy="125" r="1.3" opacity=".5"/>
-                <circle cx="270" cy="55" r="1.2" opacity=".45"/>
+                    <g stroke-width="1">
+                        <path d="M20 20 h26 M20 20 v26" stroke-opacity="0.1" />
+                        <path d="M1232 272 h-26 M1232 272 v-26" stroke-opacity="0.1" />
+                    </g>
+                </g>
+                <g fill="#bcd6f0">
+                    <rect x="184" y="273" width="6" height="6" rx="1.5" fill-opacity="0.18"
+                        transform="rotate(45 187 276)" />
+                    <rect x="1040" y="273" width="6" height="6" rx="1.5" fill-opacity="0.18"
+                        transform="rotate(45 1043 276)" />
+                    <circle cx="768" cy="66" r="2.6" fill-opacity="0.2" />
+                    <circle cx="447" cy="81" r="2.2" fill-opacity="0.1" />
+                    <circle cx="300" cy="196" r="2.2" fill-opacity="0.16" />
+                    <circle cx="940" cy="252" r="2.2" fill-opacity="0.08" />
+                    <circle cx="1084" cy="116" r="2" fill-opacity="0.18" />
+                    <circle cx="167" cy="167" r="2" fill-opacity="0.07" />
+                </g>
 
-                <circle cx="1005" cy="260" r="1.4" opacity=".7"/>
-                <circle cx="1120" cy="150" r="1.6" opacity=".6"/>
-                <circle cx="1185" cy="245" r="1.4" opacity=".45"/>
-            </g>
+            </svg>
+        </div>
 
-            <!-- plus stars -->
-            <g stroke="#72d6ff" stroke-width="1.2" opacity=".55">
-                <line x1="240" y1="70" x2="240" y2="84"/>
-                <line x1="233" y1="77" x2="247" y2="77"/>
+        <div
+            style="position: absolute; inset: 14px; border-radius: 14px; overflow: hidden; pointer-events: none; background-image: linear-gradient(to right, rgba(190,214,240,0.032) 1px, transparent 1px), linear-gradient(to bottom, rgba(190,214,240,0.032) 1px, transparent 1px); background-size: 41.7333px 41.7143px; background-position: 0 0; -webkit-mask-image: radial-gradient(64% 142% at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 74%, #000 100%); mask-image: radial-gradient(64% 142% at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 74%, #000 100%);">
+        </div>
 
-                <line x1="1125" y1="250" x2="1125" y2="264"/>
-                <line x1="1118" y1="257" x2="1132" y2="257"/>
-            </g>
+        <div
+            style="position: absolute; inset: 14px; border-radius: 14px; z-index: 4; pointer-events: none; padding: 1px; background: linear-gradient(146deg, rgba(255,255,255,0.42) 0%, rgba(206,232,255,0.16) 16%, rgba(255,255,255,0.05) 38%, rgba(255,206,172,0.10) 62%, rgba(255,255,255,0.14) 82%, rgba(255,255,255,0.30) 100%); -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); box-shadow: inset 0 0 0 0.5px rgba(255,255,255,0.10), 0 1px 2px rgba(0,0,0,0.30);">
+        </div>
 
-            <!-- orbital ring -->
-            <g opacity=".10">
-                <circle cx="190" cy="75"
-                        r="26"
-                        fill="none"
-                        stroke="#6fdfff"/>
+        <div
+            style="position: absolute; inset: 14px; border-radius: 14px; z-index: 3; pointer-events: none; box-shadow: inset 0 2px 6px rgba(255,255,255,0.055), inset 0 -3px 8px rgba(0,0,0,0.16), inset 2px 0 6px rgba(255,255,255,0.03), inset -2px 0 6px rgba(255,255,255,0.03);">
+        </div>
 
-                <circle cx="1085" cy="245"
-                        r="20"
-                        fill="none"
-                        stroke="#6ff0cf"/>
-            </g>
-        </svg>
+        <!-- Emoji Bubbles -->
+        <div style="position: absolute; inset: 0; z-index: 2;">
+            <div
+                style="position: absolute; top: 65px; left: 90px; width: 80px; height: 80px; border-radius: 24px; display: grid; place-items: center; font-size: 34px; transform: rotate(-7deg); background: linear-gradient(150deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05) 55%, rgba(120,170,230,0.14)); border: 1px solid rgba(255,255,255,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.30), inset 0 -14px 24px rgba(0,0,0,0.18), 0 18px 40px rgba(0,0,0,0.38); backdrop-filter: blur(18px) saturate(175%);">
+                🧠</div>
+            <div
+                style="position: absolute; top: 70px; right: 80px; width: 65px; height: 65px; border-radius: 19px; display: grid; place-items: center; font-size: 27px; transform: rotate(11deg); background: linear-gradient(150deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05) 55%, rgba(150,140,235,0.14)); border: 1px solid rgba(255,255,255,0.13); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -14px 24px rgba(0,0,0,0.18), 0 18px 40px rgba(0,0,0,0.36); backdrop-filter: blur(18px) saturate(175%);">
+                ⚡</div>
+            <div
+                style="position: absolute; bottom: 50px; left: 190px; width: 65px; height: 65px; border-radius: 21px; display: grid; place-items: center; font-size: 28px; transform: rotate(9deg); background: linear-gradient(150deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05) 55%, rgba(90,215,190,0.14)); border: 1px solid rgba(255,255,255,0.13); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -12px 22px rgba(0,0,0,0.18), 0 16px 36px rgba(0,0,0,0.36); backdrop-filter: blur(18px) saturate(175%);">
+                🧩</div>
+            <div
+                style="position: absolute; bottom: 60px; right: 185px; width: 75px; height: 75px; border-radius: 24px; display: grid; place-items: center; font-size: 33px; transform: rotate(-4deg); background: linear-gradient(150deg, rgba(255,255,255,0.16), rgba(255,255,255,0.05) 55%, rgba(120,180,240,0.14)); border: 1px solid rgba(255,255,255,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.30), inset 0 -14px 24px rgba(0,0,0,0.18), 0 18px 40px rgba(0,0,0,0.38); backdrop-filter: blur(18px) saturate(175%);">
+                🤖</div>
+        </div>
 
-        <!-- subtle noise -->
-        <svg class="noise" viewBox="0 0 400 100" preserveAspectRatio="none">
-            <filter id="noiseFilter">
-                <feTurbulence
-                    type="fractalNoise"
-                    baseFrequency="0.9"
-                    numOctaves="2"/>
-            </filter>
-
-            <rect
-                width="100%"
-                height="100%"
-                filter="url(#noiseFilter)"/>
-        </svg>
-
-        <div class="content">
-            <div class="title-wrapper">
-                <div class="title">
-                    waypoint
-                </div>
-
-                <div class="title-dot">
-                    .
-                </div>
-            </div>
-
-            <div class="pill">
-                agentic • engineering • workflow
+        <!-- Text -->
+        <div
+            style="position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+            <div style="display: flex; align-items: flex-end; line-height: 1.08;">
+                <div
+                    style="font-size: 132px; font-weight: 700; letter-spacing: 0em; padding-bottom: 0.14em; background: linear-gradient(178deg, #ffffff 0%, #f2f5f9 22%, #dbe2ec 44%, #9fa9b8 70%, #7f8998 88%, #98a2b1 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.20)) drop-shadow(0 -1px 0 rgba(0,0,0,0.16)) drop-shadow(0 2px 3px rgba(0,0,0,0.16)) drop-shadow(0 16px 36px rgba(0,0,0,0.32))">
+                    waypoint</div>
+                <div
+                    style="margin-left: 2px; padding-bottom: 0.14em; font-size: 132px; font-weight: 800; line-height: 1.08; color: #5fd8c4; filter: drop-shadow(0 2px 3px rgba(0,0,0,0.16)) drop-shadow(0 12px 28px rgba(0,0,0,0.3));">
+                    .</div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

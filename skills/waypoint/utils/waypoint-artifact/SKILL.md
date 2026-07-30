@@ -1,9 +1,9 @@
 ---
-name: util-artifact
+name: waypoint-artifact
 description: Defines shared guidelines for creating, validating, and updating waypoint workflow artifacts. Use only when already executing a waypoint action or when the user explicitly asked to use waypoint.
 ---
 
-# Util Artifact
+# Artifact - Utility
 
 These guidelines apply to every artifact of the *waypoint* workflow.
 
@@ -20,12 +20,29 @@ These guidelines apply to every artifact of the *waypoint* workflow.
 
 - Create any missing directories.
 - If an artifact already exists for the action, update its content to reflect the newest state.
-- The artifact must contain only the action output in Markdown.
+- The artifact body must contain only the action output in Markdown, followed by the metadata footer.
+
+### Metadata Footer
+
+Read the current version from [../../references/version.md](../../references/version.md).
+
+On initial creation:
+
+```
+---
+Generated with waypoint [current version]
+```
+
+On update:
+
+- Same version — keep the existing `Generated with` line; do not add `Last updated with`.
+- Different version — keep the original `Generated with` line and add `Last updated with waypoint [current version]` on the next line.
 
 ### After Production
 
 - In the chat reply, link the artifact file first. Very briefly summarize its content.
-- Advise the user to review the artifact before proceeding to the next action.
+- When other affected artifacts were updated, link those in the chat response as well.
+- Advise the user to review each artifact before proceeding to the next action.
 
 ## Artifact Maintenance
 

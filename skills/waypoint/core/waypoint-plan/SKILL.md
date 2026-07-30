@@ -4,7 +4,7 @@ description: Produces an *Implementation Plan* from an existing Alignment Brief.
 disable-model-invocation: true
 ---
 
-# Plan
+# Plan - Core Action
 
 **Second core action** of the *waypoint* workflow. Determines **how** the requested change should be implemented.
 
@@ -13,14 +13,14 @@ disable-model-invocation: true
 ## Process
 
 1. Read the Alignment Brief.
-   - Validate it by invoking waypoints `util-artifact` skill.
+   - Validate it by using `waypoint-artifact`.
 2. Identify relevant architecture, patterns, components and conventions in the existing codebase.
 3. Select an implementation approach consistent with the existing codebase.
    - Always search for the simplest possible solution that meets the requirements.
    - Question each implementation decision before proceeding.
 4. Break the work into ordered, small and independent tasks.
 5. Identify significant implementation risks.
-6. Produce an **Implementation Plan** using waypoints `util-artifact` skill.
+6. Produce an **Implementation Plan** using `waypoint-artifact`.
 
 ---
 
@@ -60,7 +60,7 @@ Technical risks or constraints that could affect implementation, their impact an
 
 - Prefer extending existing architecture and patterns over introducing new ones.
 - Favor simple, incremental changes.
-- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using `waypoint-artifact`.
 - Do not write or modify code.
 - Do not revisit or question established decisions of the Alignment Brief.
 

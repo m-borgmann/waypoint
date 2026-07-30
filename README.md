@@ -1,8 +1,6 @@
-<img width="1280" height="320" src="./assets/banner.webp" alt="waypoint banner">
+<img width="1280" height="320" src="./assets/banner.html.png" alt="waypoint repository banner">
 
 <div align="center">
-  
-# waypoint
 
 An opinionated workflow for agentic engineering.  
 Guides you and your agents from problem discovery to production-ready code.
@@ -48,7 +46,7 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 
 **Utility actions** are shared helpers used by other actions:
 
-- `util-artifact`: creates, validates, and keeps workflow artifacts in sync.
+- `waypoint-artifact`: creates, validates, and keeps workflow artifacts in sync.
 
 The `waypoint` skill serves as an entry point. It classifies each request as **Progress** (advance to the next incomplete core action), **Revision** (change work that already has artifacts, including from a new chat), or **Optional** (explicitly requested optional action), then routes to the appropriate action.
 

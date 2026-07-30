@@ -4,7 +4,7 @@ description: Executes an Implementation Plan and produces a Build Log.
 disable-model-invocation: true
 ---
 
-# Build
+# Build - Core Action
 
 **Third core action** of the *waypoint* workflow. Executes the **Implementation Plan** one task at a time, continuously verifying progress until implementation is complete.
 
@@ -13,7 +13,7 @@ disable-model-invocation: true
 ## Process
 
 1. Read the Implementation Plan.
-   - Validate it by invoking waypoints `util-artifact` skill.
+   - Validate it by using `waypoint-artifact`.
 2. Execute tasks sequentially, one at a time.
    - Implement only what the task requires.
 3. After each task:
@@ -21,7 +21,7 @@ disable-model-invocation: true
    - If the implementation can be simplified without losing behavior, do so.
    - Run the smallest meaningful verification available.
    - Resolve failures before continuing.
-4. Once all tasks are complete, produce a **Build Log** using waypoints `util-artifact` skill.
+4. Once all tasks are complete, produce a **Build Log** using `waypoint-artifact`.
 
 ---
 
@@ -52,7 +52,7 @@ Any necessary deviations from the Implementation Plan, including justification.
 - Verify each task before proceeding.
 - If this change orphans code, remove it.
 - If you encounter pre-existing dead code, debug logs, or dumps, explicitly flag them. Do not remove them without user confirmation.
-- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using `waypoint-artifact`.
 - Do not revisit product or architectural decisions.
 - Do not make incidental improvements, refactor unrelated code or expand the scope in any way.
 

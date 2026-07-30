@@ -4,7 +4,7 @@ description: Clarifies requirements and user intent. Produces an Alignment Brief
 disable-model-invocation: true
 ---
 
-# Align
+# Align - Core Action
 
 **First core action** of the *waypoint* workflow. Establishes a shared understanding of **what** should be built.
 
@@ -24,7 +24,7 @@ disable-model-invocation: true
    - If you have access to an interactive question tool like AskQuestions, use it. Otherwise fallback to chat.
 4. If clarification is required, stop and wait for user input.
    - If answers by the user surface new ambiguities, ask follow-up questions.
-5. Once the requirements are clear, produce an **Alignment Brief** using waypoints `util-artifact` skill.
+5. Once the requirements are clear, produce an **Alignment Brief** using `waypoint-artifact`.
 
 ---
 
@@ -57,7 +57,7 @@ All stated limitations (technical, functional, business, or environmental).
 
 - Focus only on requirements, not implementation details.
 - Explicitly state assumptions. Ask only when something would leave the brief ambiguous.
-- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using waypoints `util-artifact` skill.
+- When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using `waypoint-artifact`.
 - Do not propose implementation details, architecture or code.
 - Do not write any code.
 
