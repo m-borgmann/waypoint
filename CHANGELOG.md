@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Polished README with alerts, footnotes, and clearer onboarding and best-practices guidance
+- Tweaked repository banner design by increasing emoji bubbles for better readability and removing the border overlay for more clarity
+- `waypoint-artifact` metadata template docs use `{current version}` placeholder syntax
+
 ## [2.2.0] - 2026-07-30
 
 ### Changed

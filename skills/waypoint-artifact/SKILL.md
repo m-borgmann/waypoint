@@ -30,13 +30,13 @@ On initial creation:
 
 ```
 ---
-Generated with waypoint [current version]
+Generated with waypoint {current version}
 ```
 
 On update:
 
 - Same version — keep the existing `Generated with` line; do not add `Last updated with`.
-- Different version — keep the original `Generated with` line and add `Last updated with waypoint [current version]` on the next line.
+- Different version — keep the original `Generated with` line and add `Last updated with waypoint {current version}` on the next line.
 
 ### After Production
 
