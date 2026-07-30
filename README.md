@@ -24,54 +24,61 @@ Or manually copy the skills from this repository into your agent's `skills` dire
 
 ## ✨ Why waypoint?
 
-> *waypoint* was made for the **agentic engineer** who wants to stay involved throughout the development cycle. It is not designed for unsupervised vibe coding — a human is expected at every action. It borrows the discipline of established software engineering practices while embracing the speed and leverage that modern language models provide.
+*waypoint* was made for the **agentic engineer** who wants to stay involved throughout the development cycle. It is not designed for unsupervised vibe coding — a human is expected at every action. It borrows the discipline of established software engineering practices while embracing the speed and leverage that modern language models provide.
 
 With just a handful of user-invoked skills, the workflow is lightweight to adopt while remaining thorough where it matters. Rather than telling the model *how to think*, it tells it *what to produce*. Each skill has a well-defined output, making the workflow predictable, composable, and easy to review. Every meaningful decision stays with a human.
 
-## 🧭 Workflow
+## 🧭 The Workflow
 
 *waypoint* is organized around **actions**. An action is a discrete unit of work that produces an artifact.
 
 > **Core actions** are the default progression. Each produces an artifact that later core actions consume:
 
-1. `waypoint-align`: clarifies requirements and user intent. Produces an *Alignment Brief*.
-2. `waypoint-plan`: designs an implementation approach against the existing codebase. Produces an *Implementation Plan*.
-3. `waypoint-build`: executes tasks one at a time, verifying after each. Produces a *Build Log*.
-4. `waypoint-review`: runs a living findings loop (full then incremental) until no open blocking issues remain. Produces *Review Findings*.
+1. `waypoint-align` clarifies requirements and user intent.
+    - Produces `align.md`
+2. `waypoint-plan` designs an implementation approach against the existing codebase.
+    - Produces `plan.md`
+3. `waypoint-build` executes tasks one at a time, verifying after each.
+    - Produces `build.md`
+4. `waypoint-review` runs a living findings loop until no open blocking issues remain.
+    - Produces `review.md`
 
 > **Optional actions** sit outside that core progression. Invoke them when you want; they are not required to progress through the four core actions:
 
-- `waypoint-ship`: generates changelog, commit message options, and PR description. Produces a *Release Package*.
+- `waypoint-ship` generates changelog, commit message options, and PR description.
+  - Produces `ship.md`
 
 > **Utility actions** are shared helpers used by other actions:
 
-- `waypoint-artifact`: creates, validates, and keeps workflow artifacts in sync.
+- `waypoint-artifact` creates, validates, and keeps workflow artifacts in sync.
 
-The `waypoint` skill serves as an entry point. It classifies each request as **Progress** (advance to the next incomplete core action), **Revision** (change work that already has artifacts, including from a new chat), or **Optional** (explicitly requested optional action), then routes to the appropriate action.
+The `/waypoint` skill serves as an entry point. It classifies each request as **Progress** (next core action), **Revision** (update existing change and it's artifacts), or **Optional**, then routes accordingly.
 
 > [!NOTE]
-> All skills follow the [Agent Skills](https://agentskills.io/home) format. In agents that support the `disable-model-invocation: true` extension (Cursor and Claude Code), the workflow starts deliberately, not opportunistically.
+> All skills follow the [Agent Skills](https://agentskills.io/home) format. Agents that support the `disable-model-invocation: true` extension start the workflow deliberately, not opportunistically.
+
+You may tune the skills to match your team's conventions and preferences.
 
 ## 🌟 Best Practices
 
-Pass the issue or ticket identifier alongside any additional information you like:
+Either directly invoke a specific action and pass the issue key alongside any additional information you like:
 
 ```
 /waypoint-align ABC-123 but ignore the last comment by john doe
 ```
 
-Or invoke the router and let it determine the correct action automatically:
+Or simply invoke the router and let it automatically determine the correct action:
 
 ```
 /waypoint ABC-123
+```
+
+```
 /waypoint ABC-123 make the primary button blue
 ```
 
 > [!IMPORTANT]
-> Start each action in a **new chat** with a fresh context window to achieve the best results.
-
-> [!TIP]
-> Tune the skills to match your team's conventions and preferences before fully adopting *waypoint* on a project.
+> Start each action in a **new chat** with a fresh context window to achieve the best results. *waypoint* uses existing artifacts for the context it needs, so no handoff is required.
 
 ## 🛠️ Recommended Tooling
 
@@ -86,7 +93,7 @@ Or invoke the router and let it determine the correct action automatically:
 
 ## 📚 Artifacts
 
-All workflow outputs are stored in the project workspace:
+All workflow outputs make up the contract between actions and between agents. They are stored in the project workspace:
 
 ```
 .waypoint/{slug}/{action}.md
@@ -94,10 +101,8 @@ All workflow outputs are stored in the project workspace:
 
 - `{slug}` — derived from the issue key (e.g. `ABC-123`)
 - `{action}` — `align`, `plan`, `build`, `review`, `ship`, or another action key
-- One living file per action; if it already exists, it is updated in place
-- Follow-ups and revisions keep every affected artifact in sync with the newest agreed state
-
-Artifacts are the contract between actions and between agents.
+- There is one living file for each action
+- Follow-ups and revisions keep affected artifacts in sync with the newest agreed state
 
 > [!NOTE]
 > Add `.waypoint/` to your project's `.gitignore` if you do not want artifacts in version control.
