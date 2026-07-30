@@ -2,7 +2,7 @@
 
 <div align="center">
 
-An opinionated workflow for agentic engineering.  
+An opinionated **workflow for agentic engineering**.  
 Guides you and your agents from problem discovery to production-ready code.
 
 </div>
@@ -50,7 +50,7 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 
 The `waypoint` skill serves as an entry point. It classifies each request as **Progress** (advance to the next incomplete core action), **Revision** (change work that already has artifacts, including from a new chat), or **Optional** (explicitly requested optional action), then routes to the appropriate action.
 
-All skills follow the [Agent Skills](https://agentskills.io/home) format.
+All skills follow the [Agent Skills](https://agentskills.io/home) format. Certain action skills use `disable-model-invocation: true` which will only work in agents that support that extension (for example Cursor and Claude Code).
 
 ## 🌟 Best Practices
 

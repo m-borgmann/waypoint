@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-07-30
+
+### Changed
+
+- Flattened skill layout to `skills/<name>/SKILL.md` so Claude Code and the Vercel Skills CLI discover every skill
+- Canonical version file lives at `waypoint/references/version.md`; `waypoint-artifact` reads it from there
+- README notes that action skills use `disable-model-invocation: true` for user-invocable-only routing in supported agents
+
 ## [2.1.0] - 2026-07-30
 
 ### Added
@@ -91,6 +99,7 @@ Initial release of *waypoint*, an opinionated workflow for agentic engineering.
 - Repository banner assets (`assets/banner.html`, `assets/banner.webp`)
 - MIT License
 
+[2.2.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.2.0
 [2.1.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.1.0
 [2.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.0.0
 [1.1.0]: https://github.com/m-borgmann/waypoint/releases/tag/v1.1.0

@@ -24,7 +24,7 @@ These guidelines apply to every artifact of the *waypoint* workflow.
 
 ### Metadata Footer
 
-Read the current version from [../../references/version.md](../../references/version.md).
+Read the current version from [../waypoint/references/version.md](../waypoint/references/version.md).
 
 On initial creation:
 
