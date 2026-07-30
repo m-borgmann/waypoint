@@ -20,7 +20,7 @@ npx skills add m-borgmann/waypoint --skill '*'
 Or manually copy the skills from this repository into your agent's `skills` directory.
 
 > [!IMPORTANT]
-> When installing with the CLI, make sure to enable every agent you plan to use. *waypoint* works with all agents that support the Agent Skills[^agent-skills] format, but the experience may differ.
+> When installing with the CLI, make sure to enable every agent you plan to use. *waypoint* works with all agents that support the [Agent Skills](https://agentskills.io/home) format, but the experience may differ.
 
 ## ✨ Why waypoint?
 
@@ -50,7 +50,7 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 The `waypoint` skill serves as an entry point. It classifies each request as **Progress** (advance to the next incomplete core action), **Revision** (change work that already has artifacts, including from a new chat), or **Optional** (explicitly requested optional action), then routes to the appropriate action.
 
 > [!NOTE]
-> All skills follow the Agent Skills[^agent-skills] format. In agents that support the `disable-model-invocation: true`[^disable-model-invocation] extension, the workflow starts deliberately, not opportunistically.
+> All skills follow the [Agent Skills](https://agentskills.io/home) format. In agents that support the `disable-model-invocation: true` extension (Cursor and Claude Code), the workflow starts deliberately, not opportunistically.
 
 ## 🌟 Best Practices
 
@@ -114,9 +114,6 @@ Artifacts are the contract between actions and between agents.
 - Thariq Shihipar, Anthropic Technical Staff: [The new rules of context engineering](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models)
 - Matt Pocock: [Skills For Real Engineers](https://github.com/mattpocock/skills)
 - Code Rabbit: [What we got wrong about code review](https://web.archive.org/web/20260629194535/https://www.coderabbit.ai/blog/what-we-got-wrong-about-code-review)
-
-[^agent-skills]: [Agent Skills](https://agentskills.io/home) — an open format for packaging reusable agent capabilities.
-[^disable-model-invocation]: An Agent Skills extension that prevents the model from auto-invoking a skill. Supported in Cursor and Claude Code.
 
 ---
 
