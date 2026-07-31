@@ -9,8 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Polished README with alerts and clearer onboarding and best-practices guidance
+- Polished README with alerts clearer onboarding, and tightened best-practices guidance
+- README folds agent enablement into install instructions; only optional actions may be omitted during installation
+- README clarifies deliberate invocation, routing, delegation and that `disable-model-invocation` blocks opportunistic ambient starts
 - Tweaked repository banner design by increasing emoji bubbles for better readability and removing the border overlay for more clarity
+- `waypoint` router action tables now include artifact filenames; routed actions are read and followed explicitly, with routing counted as user intent; removed core-action skip rule
+- All skills now use `disable-model-invocation: true`, including `waypoint` and `waypoint-artifact`
+- Action skills link to `waypoint-artifact` by relative path when producing or updating artifacts
 - `waypoint-artifact` metadata template docs use `{current version}` placeholder syntax
 
 ## [2.2.0] - 2026-07-30

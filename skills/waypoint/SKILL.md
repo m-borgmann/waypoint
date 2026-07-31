@@ -1,6 +1,7 @@
 ---
 name: waypoint
 description: Routes software engineering requests to the appropriate waypoint workflow action, including revisions when waypoint artifacts already exist. Use only when the user explicitly invokes waypoint or asks to use the waypoint workflow.
+disable-model-invocation: true
 ---
 
 # Waypoint
@@ -13,18 +14,18 @@ The workflow is built from **actions**. Each core action produces an artifact.
 
 **Core actions** form the default progression:
 
-| Action | Skill | Artifact |
-| ------- | ---------- | ---------- |
-| Align | `waypoint-align` | Alignment Brief |
-| Plan | `waypoint-plan` | Implementation Plan |
-| Build | `waypoint-build` | Build Log |
-| Review | `waypoint-review` | Review Findings |
+| Action | Skill | File | Artifact |
+| ------- | ---------- | ---------- | ---------- |
+| Align | [`waypoint-align`](../waypoint-align/SKILL.md) | `align.md` | Alignment Brief |
+| Plan | [`waypoint-plan`](../waypoint-plan/SKILL.md) | `plan.md` | Implementation Plan |
+| Build | [`waypoint-build`](../waypoint-build/SKILL.md) | `build.md` | Build Log |
+| Review | [`waypoint-review`](../waypoint-review/SKILL.md) | `review.md` | Review Findings |
 
 **Optional actions** are invoked when the user wants them (for example, Ship). They are not required for progressing through the core sequence:
 
-| Action | Skill | Artifact |
-| ------- | ---------- | ---------- |
-| Ship | `waypoint-ship` | Release Package |
+| Action | Skill | File | Artifact |
+| ------- | ---------- | ---------- | ---------- |
+| Ship | [`waypoint-ship`](../waypoint-ship/SKILL.md) | `ship.md` | Release Package |
 
 ---
 
@@ -40,17 +41,17 @@ The workflow is built from **actions**. Each core action produces an artifact.
 4. If **Revision**, select the furthest completed action that owns the requested change.
 5. If **Optional**, select that action only when the user asked for it and its prerequisites are met.
 6. Explain the transition.
-7. Follow the selected action skill. Apply `waypoint-artifact` so affected artifacts stay in sync.
+7. Read and follow the selected action skill. Use the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill so affected artifacts stay in sync.
 
 ---
 
 ## Rules
 
 - Apply this workflow only when the user explicitly requested waypoint.
+- Routing to another skill counts as explicit user intent because the user invoked waypoint.
 - Route Progress requests to the earliest core action whose required artifact is unavailable, or whose Review Findings are not `Approved`.
 - Route Revision requests back into the relevant completed action.
 - Route optional actions only when the user explicitly requests them.
-- After Revision work, update every affected artifact using `waypoint-artifact`.
-- A core action may be skipped only if the user provides equivalent inputs for the next core action.
+- After Revision work, update every affected artifact using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
 - Do not perform work that belongs to another action.
 - Do not invent missing artifacts.

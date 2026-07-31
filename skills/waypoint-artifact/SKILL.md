@@ -1,6 +1,7 @@
 ---
 name: waypoint-artifact
 description: Defines shared guidelines for creating, validating, and updating waypoint workflow artifacts. Use only when already executing a waypoint action or when the user explicitly asked to use waypoint.
+disable-model-invocation: true
 ---
 
 # Artifact - Utility

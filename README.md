@@ -11,7 +11,7 @@ Guides you and your agents from problem discovery to production-ready code.
 
 ## 🚀 Getting Started
 
-Install using the [Vercel Skills CLI](https://github.com/vercel-labs/skills):
+Install by using Vercel's [Skills CLI](https://github.com/vercel-labs/skills). When prompted, enable every agent you plan to use that supports the [Agent Skills](https://agentskills.io/home) format:
 
 ```bash
 npx skills add m-borgmann/waypoint --skill '*'
@@ -20,7 +20,7 @@ npx skills add m-borgmann/waypoint --skill '*'
 Or manually copy the skills from this repository into your agent's `skills` directory.
 
 > [!IMPORTANT]
-> When installing with the CLI, make sure to enable every agent you plan to use. *waypoint* works with all agents that support the [Agent Skills](https://agentskills.io/home) format, but the experience may differ.
+> Only optional actions may be omitted during installation. All other skills are required for the workflow to function as intended.
 
 ## ✨ Why waypoint?
 
@@ -32,9 +32,9 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 
 > **Entry Point**
 
-Each *waypoint* skill can be deliberately invoked or called automatically:
+Each skill can be deliberately invoked or routed to by the default skill:
 
-- `waypoint` acts as the default skill. It classifies each request as **Progress**, **Revision**, or **Optional**, then routes accordingly.
+- `waypoint` classifies each request as **Progress**, **Revision**, or **Optional**, then routes accordingly.
 
 The workflow is organized around **actions**. An action is a discrete unit of work that, in most cases, produces an artifact.
 
@@ -65,8 +65,9 @@ They are shared helpers used by other actions. Some are used automatically, some
 - `waypoint-artifact` creates, validates, and keeps workflow artifacts in sync.
 
 > [!NOTE]
-> All skills follow the [Agent Skills](https://agentskills.io/home) format. Agents that support the `disable-model-invocation: true` extension start the workflow deliberately, not opportunistically.
+> All skills use the `disable-model-invocation: true` extension, so agents that support it won't try to match your intent and start them opportunistically from ambient context. They run when you invoke them or when another skill routes or delegates to them.
 
+> [!TIP]
 > You may tune the skills to match your team's conventions and preferences.
 
 ## 🌟 Best Practices
@@ -77,7 +78,7 @@ Either directly invoke a specific action and pass the issue key alongside any ad
 /waypoint-align ABC-123 but ignore the last comment by john doe
 ```
 
-Or simply invoke the router and let it automatically determine the correct action:
+Or invoke the router and let it determine the correct action:
 
 ```
 /waypoint ABC-123
@@ -88,7 +89,7 @@ Or simply invoke the router and let it automatically determine the correct actio
 ```
 
 > [!IMPORTANT]
-> Start each action in a **new chat** with a fresh context window to achieve the best results. *waypoint* uses existing artifacts for the context it needs, so no handoff is required.
+> Start each action in a **new chat** with a fresh context window. Existing artifacts provide relevant context, no handoff required.
 
 ## 🛠️ Recommended Tooling
 
