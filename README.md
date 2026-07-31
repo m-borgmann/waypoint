@@ -30,9 +30,17 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 
 ## 🧭 The Workflow
 
-*waypoint* is organized around **actions**. An action is a discrete unit of work that produces an artifact.
+> **Entry Point**
 
-> **Core actions** are the default progression. Each produces an artifact that later core actions consume:
+Each *waypoint* skill can be deliberately invoked or called automatically:
+
+- `waypoint` acts as the default skill. It classifies each request as **Progress**, **Revision**, or **Optional**, then routes accordingly.
+
+The workflow is organized around **actions**. An action is a discrete unit of work that, in most cases, produces an artifact.
+
+> **Core Actions**
+
+They are the default progression. Their artifacts are consumed by later actions:
 
 1. `waypoint-align` clarifies requirements and user intent.
     - Produces `align.md`
@@ -43,21 +51,23 @@ With just a handful of user-invoked skills, the workflow is lightweight to adopt
 4. `waypoint-review` runs a living findings loop until no open blocking issues remain.
     - Produces `review.md`
 
-> **Optional actions** sit outside that core progression. Invoke them when you want; they are not required to progress through the four core actions:
+> **Optional Actions**
+
+They are not always required and sit outside the core progression. Invoke them when needed:
 
 - `waypoint-ship` generates changelog, commit message options, and PR description.
   - Produces `ship.md`
 
-> **Utility actions** are shared helpers used by other actions:
+> **Utility Actions**
+
+They are shared helpers used by other actions. Some are used automatically, some may be invoked intentionally:
 
 - `waypoint-artifact` creates, validates, and keeps workflow artifacts in sync.
-
-The `/waypoint` skill serves as an entry point. It classifies each request as **Progress** (next core action), **Revision** (update existing change and it's artifacts), or **Optional**, then routes accordingly.
 
 > [!NOTE]
 > All skills follow the [Agent Skills](https://agentskills.io/home) format. Agents that support the `disable-model-invocation: true` extension start the workflow deliberately, not opportunistically.
 
-You may tune the skills to match your team's conventions and preferences.
+> You may tune the skills to match your team's conventions and preferences.
 
 ## 🌟 Best Practices
 
