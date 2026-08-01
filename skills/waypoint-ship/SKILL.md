@@ -21,7 +21,7 @@ disable-model-invocation: true
    - If any check fails, notify the user which check failed.
    - If it is possible to automatically fix it do so. Otherwise stop and report.
 4. Produce a **Release Package** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-   - Follow the schema defined in [references/artifact.md](references/artifact.md).
+   - Follow the schema defined in [references/schema.md](references/schema.md).
    - Populate it using only information contained in the upstream artifacts.
 
 ---

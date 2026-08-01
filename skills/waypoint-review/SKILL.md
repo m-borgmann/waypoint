@@ -34,7 +34,7 @@ disable-model-invocation: true
    - Mark findings **dismissed** only when the user explicitly dismisses them.
    - Add new findings as **open**. Do not reopen fixed or dismissed findings without new evidence.
 5. Update **Review Findings** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-   - Follow the schema defined in [references/artifact.md](references/artifact.md).
+   - Follow the schema defined in [references/schema.md](references/schema.md).
    - Set **Status** to **Approved** only when there are no open blocking findings.
    - Otherwise set **Status** to **Changes requested**.
 6. If **Changes requested**, resolve open blocking findings one at a time.

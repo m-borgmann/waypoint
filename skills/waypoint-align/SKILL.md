@@ -25,7 +25,7 @@ disable-model-invocation: true
 4. If clarification is required, stop and wait for user input.
    - If answers by the user surface new ambiguities, ask follow-up questions.
 5. Once the requirements are clear, produce an **Alignment Brief** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-   - Follow the schema defined in [references/artifact.md](references/artifact.md).
+   - Follow the schema defined in [references/schema.md](references/schema.md).
 
 ---
 

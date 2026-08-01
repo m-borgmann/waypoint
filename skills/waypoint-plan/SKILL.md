@@ -21,7 +21,7 @@ disable-model-invocation: true
 4. Break the work into ordered, small and independent tasks.
 5. Identify significant implementation risks.
 6. Produce an **Implementation Plan** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-   - Follow the schema defined in [references/artifact.md](references/artifact.md).
+   - Follow the schema defined in [references/schema.md](references/schema.md).
 
 ---
 
