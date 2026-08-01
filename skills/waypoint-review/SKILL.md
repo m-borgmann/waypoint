@@ -34,6 +34,7 @@ disable-model-invocation: true
    - Mark findings **dismissed** only when the user explicitly dismisses them.
    - Add new findings as **open**. Do not reopen fixed or dismissed findings without new evidence.
 5. Update **Review Findings** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
+   - Follow the schema defined in [references/artifact.md](references/artifact.md).
    - Set **Status** to **Approved** only when there are no open blocking findings.
    - Otherwise set **Status** to **Changes requested**.
 6. If **Changes requested**, resolve open blocking findings one at a time.
@@ -42,41 +43,6 @@ disable-model-invocation: true
    - Otherwise apply the smallest correct fix that is uniquely determined by upstream artifacts and the finding.
    - Verify the fix, mark the finding **fixed**, then return to step 2 for an incremental review.
 7. Finish when **Status** is **Approved**.
-
----
-
-## Review Findings
-
-### Summary
-
-High-level assessment of the current review pass.
-
-### Findings
-
-A living list. Keep fixed and dismissed findings for history; do not delete them.
-
-For each finding include:
-
-- ID (stable, e.g. `F1`)
-- Axis (`specification` or `standards`)
-- Severity (`critical`, `major`, `minor`, or `info`)
-- Status (`open`, `fixed`, or `dismissed`)
-- Location (file, symbol, or area when known)
-- Reason (why it matters)
-- Proposed fix
-- Resolution (required when `fixed` or `dismissed`: what changed, or why it was dismissed)
-
-Severity:
-
-- `critical` / `major` — blocking
-- `minor` / `info` — non-blocking (`info` needs no action)
-
-### Status
-
-- `Approved` — no open blocking findings (open `minor` / `info` may remain)
-- `Changes requested` — one or more open blocking findings remain
-
-Include open blocking and open non-blocking counts.
 
 ---
 

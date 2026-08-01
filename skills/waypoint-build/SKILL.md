@@ -22,22 +22,7 @@ disable-model-invocation: true
    - Run the smallest meaningful verification available.
    - Resolve failures before continuing.
 4. Once all tasks are complete, produce a **Build Log** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-
----
-
-## Build Log
-
-### Completed Tasks
-
-For each task include:
-
-- Summary
-- Changes
-- Verification
-
-### Deviations
-
-Any necessary deviations from the Implementation Plan, including justification.
+   - Follow the schema defined in [references/artifact.md](references/artifact.md).
 
 ---
 

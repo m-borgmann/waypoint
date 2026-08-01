@@ -12,6 +12,7 @@ These guidelines apply to every artifact of the *waypoint* workflow.
 
 ## Artifact Production
 
+- Artifact content structure is defined in each skill's `references/artifact.md`.
 - Create the artifact in the workspace at `.waypoint/{slug}/{action}.md`.
 - `{slug}` is derived from the issue or ticket key (for example, `ABC-123`).
 - `{action}` is the current workflow action (for example, `align`, `plan`, `build`, `review`, or `ship`).

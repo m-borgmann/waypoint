@@ -21,38 +21,7 @@ disable-model-invocation: true
 4. Break the work into ordered, small and independent tasks.
 5. Identify significant implementation risks.
 6. Produce an **Implementation Plan** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-
----
-
-## Implementation Plan
-
-### Goal
-
-Summarize the implementation objective.
-
-### Approach
-
-A list of implementation decisions that were made.
-Explain why this approach fits the existing codebase better than reasonable alternatives.
-Do not include specific file paths or code snippets.
-
-### Tasks
-
-An ordered list of implementation tasks.
-
-For each task include:
-
-- Objective
-- Dependencies
-- Verification
-
-### Testing Strategy
-
-If tests are required or advised for the requested change, define what and how it will be tested.
-
-### Risks
-
-Technical risks or constraints that could affect implementation, their impact and mitigation.
+   - Follow the schema defined in [references/artifact.md](references/artifact.md).
 
 ---
 

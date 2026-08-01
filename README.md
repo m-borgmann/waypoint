@@ -128,8 +128,8 @@ All workflow outputs make up the contract between actions and between agents. Th
 
 - Addy Osmani, Shubham Saboo, and Sokratis Kartakis: [The New SDLC With Vibe Coding](https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding)
 - Thariq Shihipar, Anthropic Technical Staff: [The new rules of context engineering](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models)
+- Harjot Gill, CEO of Code Rabbit: [Code is no longer the bottleneck. Understanding is.](https://www.coderabbit.ai/blog/code-is-no-longer-the-bottleneck-understanding-is)
 - Matt Pocock: [Skills For Real Engineers](https://github.com/mattpocock/skills)
-- Code Rabbit: [What we got wrong about code review](https://web.archive.org/web/20260629194535/https://www.coderabbit.ai/blog/what-we-got-wrong-about-code-review)
 
 ---
 

@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-08-01
+
 ### Changed
 
 - Polished README with alerts clearer onboarding, and tightened best-practices guidance
@@ -15,8 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tweaked repository banner design by increasing emoji bubbles for better readability and removing the border overlay for more clarity
 - `waypoint` router action tables now include artifact filenames; routed actions are read and followed explicitly, with routing counted as user intent; removed core-action skip rule
 - All skills now use `disable-model-invocation: true`, including `waypoint` and `waypoint-artifact`
+- Action skills now define artifact structure in local `references/artifact.md` instead of inline in each `SKILL.md`
 - Action skills link to `waypoint-artifact` by relative path when producing or updating artifacts
-- `waypoint-artifact` metadata template docs use `{current version}` placeholder syntax
+- `waypoint-artifact` points to each action skill's `references/artifact.md` for content structure
 
 ## [2.2.0] - 2026-07-30
 
@@ -110,6 +113,7 @@ Initial release of *waypoint*, an opinionated workflow for agentic engineering.
 - Repository banner assets (`assets/banner.html`, `assets/banner.webp`)
 - MIT License
 
+[2.3.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.3.0
 [2.2.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.2.0
 [2.1.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.1.0
 [2.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.0.0
