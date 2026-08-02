@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Plan - Core Action
 
-**Second core action** of the *waypoint* workflow. Determines **how** the requested change should be implemented.
+Second core action of the waypoint workflow. Determines how the requested change should be implemented.
 
 ---
 
@@ -20,7 +20,7 @@ disable-model-invocation: true
    - Question each implementation decision before proceeding.
 4. Break the work into ordered, small and independent tasks.
 5. Identify significant implementation risks.
-6. Produce an **Implementation Plan** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
+6. Produce an Implementation Plan using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
    - Follow the schema defined in [references/schema.md](references/schema.md).
 
 ---
@@ -39,4 +39,4 @@ disable-model-invocation: true
 
 Finish when:
 
-- An **Implementation Plan** has been produced.
+- An Implementation Plan has been produced.

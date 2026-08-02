@@ -6,17 +6,17 @@ disable-model-invocation: true
 
 # Review - Core Action
 
-**Fourth core action** of the *waypoint* workflow. Evaluates whether the implementation fulfils the **Alignment Brief** and **Implementation Plan** using the simplest implementation that correctly solves the problem. Continues until no open blocking findings remain.
+Fourth core action of the waypoint workflow. Evaluates whether the implementation fulfils the Alignment Brief and Implementation Plan using the simplest implementation that correctly solves the problem. Continues until no open blocking findings remain.
 
 ---
 
 ## Process
 
-1. Read the **Alignment Brief**, **Implementation Plan** and **Build Log**.
+1. Read the Alignment Brief, Implementation Plan and Build Log.
    - Validate each artifact using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-2. Load existing **Review Findings** if present.
-   - If absent, run a **full review** of the entire implementation.
-   - If present, run an **incremental review**: re-verify every open finding against the current code, then review only changes since the last pass.
+2. Load existing Review Findings if present.
+   - If absent, run a full review of the entire implementation.
+   - If present, run an incremental review: re-verify every open finding against the current code, then review only changes since the last recorded snapshot.
 3. Critically review along two axes as parallel sub-agents. Aggregate their findings.
    - Specification Axis
       - Functional correctness
@@ -30,19 +30,19 @@ disable-model-invocation: true
       - Performance and scalability
       - Maintainability and conformance with the existing codebase
 4. Merge results into the living findings list.
-   - Mark findings **fixed** when the current code clearly addresses them.
-   - Mark findings **dismissed** only when the user explicitly dismisses them.
-   - Add new findings as **open**. Do not reopen fixed or dismissed findings without new evidence.
-5. Update **Review Findings** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
+   - Mark findings fixed when the current code clearly addresses them.
+   - Mark findings dismissed only when the user explicitly dismisses them.
+   - Add new findings as open. Do not reopen fixed or dismissed findings without new evidence.
+5. Update Review Findings using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
    - Follow the schema defined in [references/schema.md](references/schema.md).
-   - Set **Status** to **Approved** only when there are no open blocking findings.
-   - Otherwise set **Status** to **Changes requested**.
-6. If **Changes requested**, resolve open blocking findings one at a time.
+   - Set Status to Approved only when there are no open blocking findings.
+   - Otherwise set Status to Rejected.
+6. If Rejected, resolve open blocking findings one at a time.
    - Present the finding.
    - Stop and ask the user when resolving a finding would require choosing among valid approaches, weaken a requirement, or expand the scope.
    - Otherwise apply the smallest correct fix that is uniquely determined by upstream artifacts and the finding.
-   - Verify the fix, mark the finding **fixed**, then return to step 2 for an incremental review.
-7. Finish when **Status** is **Approved**.
+   - Verify the fix, mark the finding fixed, then return to step 2 for an incremental review.
+7. Finish when Status is Approved.
 
 ---
 
@@ -65,4 +65,4 @@ disable-model-invocation: true
 
 Finish when:
 
-- **Review Findings** exist with **Status** `Approved`.
+- Review Findings exist with Status `Approved`.

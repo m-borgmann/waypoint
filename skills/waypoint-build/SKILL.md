@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 # Build - Core Action
 
-**Third core action** of the *waypoint* workflow. Executes the **Implementation Plan** one task at a time, continuously verifying progress until implementation is complete.
+Third core action of the waypoint workflow. Executes the Implementation Plan one task at a time, continuously verifying progress until implementation is complete.
 
 ---
 
@@ -21,7 +21,7 @@ disable-model-invocation: true
    - If the implementation can be simplified without losing behavior, do so.
    - Run the smallest meaningful verification available.
    - Resolve failures before continuing.
-4. Once all tasks are complete, produce a **Build Log** using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
+4. Once all tasks are complete, produce a Build Log using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
    - Follow the schema defined in [references/schema.md](references/schema.md).
 
 ---
@@ -47,4 +47,4 @@ disable-model-invocation: true
 
 Finish when:
 
-- A **Build Log** has been produced.
+- A Build Log has been produced.

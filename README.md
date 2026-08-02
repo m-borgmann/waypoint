@@ -24,7 +24,7 @@ Or manually copy the skills from this repository into your agent's `skills` dire
 
 ## ✨ Why waypoint?
 
-*waypoint* was made for the **agentic engineer** who wants to stay involved throughout the development cycle. It is not designed for unsupervised vibe coding — a human is expected at every action. It borrows the discipline of established software engineering practices while embracing the speed and leverage that modern language models provide.
+*waypoint* was made for the **agentic engineer** who wants to stay involved throughout the development cycle. It is not designed for unsupervised vibe coding. It borrows the discipline of established software engineering practices while embracing the speed and leverage that modern language models provide.
 
 With just a handful of user-invoked skills, the workflow is lightweight to adopt while remaining thorough where it matters. Rather than telling the model *how to think*, it tells it *what to produce*. Each skill has a well-defined output, making the workflow predictable, composable, and easy to review. Every meaningful decision stays with a human.
 

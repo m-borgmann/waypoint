@@ -1,5 +1,13 @@
 # Review Findings
 
+## Snapshot
+
+Git snapshot of the implementation this review pass evaluated.
+
+- `HEAD`: The first 12 characters of SHA over `HEAD`
+- `DIFF`: The first 12 characters of SHA over `git diff HEAD` plus the path and content of each untracked file
+  - Otherwise `clean` when there are no staged, unstaged, or untracked changes vs `HEAD`
+
 ## Summary
 
 High-level assessment of the current review pass.
@@ -27,6 +35,6 @@ Severity:
 ## Status
 
 - `Approved` — no open blocking findings (open `minor` / `info` may remain)
-- `Changes requested` — one or more open blocking findings remain
+- `Rejected` — one or more open blocking findings remain
 
 Include open blocking and open non-blocking counts.

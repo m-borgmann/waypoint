@@ -12,17 +12,13 @@ These guidelines apply to every artifact of the *waypoint* workflow.
 
 ## Artifact Production
 
-- Artifact content schema is defined in each skill's `references/schema.md`.
 - Create the artifact in the workspace at `.waypoint/{slug}/{action}.md`.
-- `{slug}` is derived from the issue or ticket key (for example, `ABC-123`).
-- `{action}` is the current workflow action (for example, `align`, `plan`, `build`, `review`, or `ship`).
-- Be concise when writing its content. Do not over-explain or repeat yourself.
-
-### File Creation
-
-- Create any missing directories.
-- If an artifact already exists for the action, update its content to reflect the newest state.
-- The artifact body must contain only the action output in Markdown, followed by the metadata footer.
+  - `{slug}` is derived from the issue or ticket key (for example, `ABC-123`).
+  - `{action}` is the current workflow action (for example, `align`, `plan`, `build`, `review`, or `ship`).
+- The artifacts schema is defined in each skill's `references/schema.md`.
+- Always be concise and avoid over-explaining or repeating yourself.
+- The artifact body must contain only the action output in accordance with its schema, followed by the metadata footer.
+- Do not restate content from upstream artifacts. Cross-reference them instead and only write this action's delta.
 
 ### Metadata Footer
 
@@ -42,9 +38,9 @@ On update:
 
 ### After Production
 
-- In the chat reply, link the artifact file first. Very briefly summarize its content.
-- When other affected artifacts were updated, link those in the chat response as well.
-- Advise the user to review each artifact before proceeding to the next action.
+- Link the artifact file in your reply. Briefly summarize its content.
+- When other affected artifacts were updated, link those too.
+- Advise the user to review and optionally tweak each output before proceeding.
 
 ## Artifact Maintenance
 

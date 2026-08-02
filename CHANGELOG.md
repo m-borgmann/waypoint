@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.0] - 2026-08-02
+
+### Added
+
+- Review Findings schema now records a git snapshot (`HEAD` and `DIFF`) so incremental reviews know what changed since the last pass
+- `waypoint-ship` detects stale review by comparing the current snapshot to the one in Review Findings and runs an incremental review before shipping when they differ
+
+### Changed
+
+- Review Findings status `Changes requested` renamed to `Rejected`
+- `waypoint-align` identifies gaps through multiple lenses and includes recommendations and tradeoffs in clarifying questions
+- `waypoint-artifact` instructs agents to cross-reference upstream artifacts instead of restating their content
+- `waypoint-ship` re-runs CI when review was stale; description and rules now require the current state to have passed review
+- Removed redundant bold emphasis across skill files
+
 ## [2.3.1] - 2026-08-01
 
 ### Changed
@@ -120,6 +135,7 @@ Initial release of *waypoint*, an opinionated workflow for agentic engineering.
 - Repository banner assets (`assets/banner.html`, `assets/banner.webp`)
 - MIT License
 
+[2.4.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.4.0
 [2.3.1]: https://github.com/m-borgmann/waypoint/releases/tag/v2.3.1
 [2.3.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.3.0
 [2.2.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.2.0
