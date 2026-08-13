@@ -10,13 +10,8 @@ In plain language: The solution to the problem, from the user's perspective.
 
 ## User Stories
 
-An extensive, numbered list of user stories with acceptance criteria nested under each story.
-Together they cover all aspects of the request.
+An extensive list of user stories with acceptance criteria nested under each story, covering all aspects of the request. Consecutively numbered.
 
-## Out of Scope
+## Boundaries
 
-Anything explicitly excluded.
-
-## Constraints
-
-All stated limitations (technical, functional, business, or environmental).
+Any exclusions that are out of scope or constraints that limit in-scope work. Explicit decisions only, no restated content. Omit the entire section when nothing applies.

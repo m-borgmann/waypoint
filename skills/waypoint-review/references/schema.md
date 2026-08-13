@@ -19,7 +19,6 @@ A living list. Keep fixed and dismissed findings for history; do not delete them
 For each finding include:
 
 - ID (stable, e.g. `F1`)
-- Axis (`specification` or `standards`)
 - Severity (`critical`, `major`, `minor`, or `info`)
 - Status (`open`, `fixed`, or `dismissed`)
 - Location (file, symbol, or area when known)

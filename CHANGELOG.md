@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-08-13
+
+### Changed
+
+- `waypoint-review` presents findings and stops on rejection; fixes only when the user directs
+- `waypoint-review` findings schema drops the Axis field
+- `waypoint-align` merges Out of Scope and Constraints into a single Boundaries section
+- `waypoint-align` surfaces assumptions for explicit user resolution instead of asking only when ambiguous
+
 ## [2.4.0] - 2026-08-02
 
 ### Added

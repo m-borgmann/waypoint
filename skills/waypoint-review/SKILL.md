@@ -37,12 +37,10 @@ Fourth core action of the waypoint workflow. Evaluates whether the implementatio
    - Follow the schema defined in [references/schema.md](references/schema.md).
    - Set Status to Approved only when there are no open blocking findings.
    - Otherwise set Status to Rejected.
-6. If Rejected, resolve open blocking findings one at a time.
-   - Present the finding.
-   - Stop and ask the user when resolving a finding would require choosing among valid approaches, weaken a requirement, or expand the scope.
-   - Otherwise apply the smallest correct fix that is uniquely determined by upstream artifacts and the finding.
-   - Verify the fix, mark the finding fixed, then return to step 2 for an incremental review.
-7. Finish when Status is Approved.
+6. If Rejected, present the Review findings and stop.
+7. When the user directs you to fix specific findings, resolve them.
+   - Verify the finding, then mark it fixed. Finally return to step 2 for an incremental review.
+8. Finish when Status is Approved.
 
 ---
 
@@ -52,7 +50,7 @@ Fourth core action of the waypoint workflow. Evaluates whether the implementatio
 - Question any additional changes that do not clearly contribute to the requested behavior.
 - Report only high-confidence issues with clear evidence. Do not speculate.
 - Keep findings current: every review pass must refresh statuses against the code.
-- Fix only open blocking findings inside this action, and only with surgical changes.
+- Do not fix findings automatically. Wait for the user to choose how to address them.
 - Leave open non-blocking findings unless the user asks to address them.
 - When this action's artifact exists and the user continues to work on it in some way, always update affected artifacts using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
 - Do not revisit product or architectural decisions from upstream artifacts.
