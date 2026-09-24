@@ -1,57 +1,59 @@
 ---
 name: waypoint
-description: Routes software engineering requests to the appropriate waypoint workflow action, including revisions when waypoint artifacts already exist. Use only when the user explicitly invokes waypoint or asks to use the waypoint workflow.
+description: Clarifies requirements and user intent through round-based questions. Produces a durable spec.md file. Use only when the user explicitly invokes the waypoint skill.
 disable-model-invocation: true
 ---
 
-# Waypoint
+# waypoint
 
-Version: [references/version.md](references/version.md)
-
-Entry point to the waypoint workflow. Determine the next workflow action based on the user's request and any available workflow artifacts.
-
-The workflow is built from actions. Each core action produces an artifact.
-
-Core actions form the default progression:
-
-| Action | Skill | File | Artifact |
-| ------- | ---------- | ---------- | ---------- |
-| Align | [`waypoint-align`](../waypoint-align/SKILL.md) | `align.md` | Alignment Brief |
-| Plan | [`waypoint-plan`](../waypoint-plan/SKILL.md) | `plan.md` | Implementation Plan |
-| Build | [`waypoint-build`](../waypoint-build/SKILL.md) | `build.md` | Build Log |
-| Review | [`waypoint-review`](../waypoint-review/SKILL.md) | `review.md` | Review Findings |
-
-Optional actions are invoked when the user wants them. They are not required for progressing through the core sequence:
-
-| Action | Skill | File | Artifact |
-| ------- | ---------- | ---------- | ---------- |
-| Ship | [`waypoint-ship`](../waypoint-ship/SKILL.md) | `ship.md` | Release Package |
+Establishes a shared understanding of what should be built and writes it to `.waypoint/{slug}/spec.md`.
+The `spec.md` file is the source of truth for **what we want**. Existing code is the source of truth for **what we have**.
 
 ---
 
 ## Process
 
-1. Determine the furthest completed core action from the available information.
-   - Review is complete only when Review Findings exist with Status `Approved`.
-2. Classify the request:
-   - Progress: The user is advancing the workflow to the next incomplete core action.
-   - Revision: The user is changing requirements, design or implementation for work that already has waypoint artifacts.
-   - Optional: The user explicitly requests an optional action (for example, ship).
-3. If Progress, select the earliest incomplete core action.
-4. If Revision, select the furthest completed action that owns the requested change.
-5. If Optional, select that action only when the user asked for it and its prerequisites are met.
-6. Explain the transition.
-7. Read and follow the selected action skill. Use the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill so affected artifacts stay in sync.
+1. Determine the slug from the issue or ticket key (for example, `ABC-123`). If none is provided, ask for one or agree on a short slug with the user.
+2. Read the request.
+   - If no specific request was provided, ask the user to describe the desired change.
+   - If a referenced issue or ticket is available via connected tools, retrieve it for additional context. Otherwise proceed with user input.
+   - If `.waypoint/{slug}/spec.md` already exists, read it and treat further work as updating that spec.
+3. Identify gaps in the request by thinking through multiple lenses:
+   - Ambiguities and missing information
+   - Conflicts and contradictions
+   - Scope and boundaries
+   - User journeys and edge cases
+   - Success criteria
+4. Ask clarifying questions in rounds until requirements are clear.
+   - Briefly state relevant context, recommendations and tradeoffs for each question.
+   - Provide multiple choices.
+   - Group related questions.
+   - Number each question.
+5. Stop and wait for user input after each round.
+   - If answers surface new ambiguities, ask follow-up questions in another round.
+6. Once requirements are clear, write `.waypoint/{slug}/spec.md`.
+   - Follow [references/schema.md](references/schema.md).
+   - Be concise; avoid over-explaining or repeating yourself.
+   - Body must contain only the spec content per the schema.
+7. Link the file in your reply, briefly summarize it, and ask the user to review.
+8. Stop and wait for explicit human approval of the spec.
+   - If the user requests changes, update `.waypoint/{slug}/spec.md` and ask for approval again.
+9. After approval, tell the user to open a **fresh chat** and continue with **Plan Mode**, with the `.waypoint/{slug}/spec.md` attached. Suggest this prompt, with the real slug filled in: "Switch to plan mode and create an implementation plan for @.waypoint/{slug}/spec.md"
 
 ---
 
 ## Rules
 
-- Apply this workflow only when the user explicitly requested waypoint.
-- Routing to another skill counts as explicit user intent because the user invoked waypoint.
-- Route Progress requests to the earliest core action whose required artifact is unavailable, or whose Review Findings are not `Approved`.
-- Route Revision requests back into the relevant completed action.
-- Route optional actions only when the user explicitly requests them.
-- After Revision work, update every affected artifact using the [`waypoint-artifact`](../waypoint-artifact/SKILL.md) skill.
-- Do not perform work that belongs to another action.
-- Do not invent missing artifacts.
+- If you have access to an interactive question tool, use it. Otherwise fallback to chat.
+- Surface assumptions you are making and let the user decide before resolving them into the relevant sections.
+- Do not write implementation details, architecture, or code into `.waypoint/{slug}/spec.md`.
+- Do not write any code.
+
+---
+
+## Exit Criteria
+
+Finish when:
+
+- `.waypoint/{slug}/spec.md` exists and the user has explicitly approved it.
+- The user has been pointed at a fresh chat, with the plan prompt.

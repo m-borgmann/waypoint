@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-09-23
+
+### Breaking
+
+- Waypoint is now a **methodology**: two explicit skills, not a multi-artifact workflow
+
+### Removed
+
+- Removed `waypoint-plan`, `waypoint-build`, `waypoint-review`, and `waypoint-artifact`
+- Removed the `waypoint` router (Progress / Revision / Optional classification)
+
+### Changed
+
+- Replaced `waypoint-align` with `waypoint`, which writes a `.waypoint/{slug}/spec.md` after clarifying questions and explicit approval
+- Replaced `waypoint-ship` with `dispatch`: runs the relevant project checks, offers three commit messages, commits the one you pick, and pushes only after confirmation
+- Plan, build, and code review are now Cursor Plan, Cursor Build, and CodeRabbit
+
 ## [2.5.0] - 2026-08-13
 
 ### Changed
