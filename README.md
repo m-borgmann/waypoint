@@ -1,8 +1,8 @@
-<img width="1280" height="320" src="./assets/banner.html.png" alt="Banner for the waypoint repository, an agentic engineering methodology, showing the project name with brain, puzzle, robot and lightning emojis on a blueprint-like dark gradient background">
+<img width="1280" height="320" src="./assets/banner.html.png" alt="Banner for the waypoint repository, a simple agentic engineering workflow, showing the project name with brain, puzzle, robot and lightning emojis on a blueprint-like dark gradient background">
 
 <div align="center">
 
-An opinionated **methodology** for **agentic engineering**, intentionally tailored to be used with **Cursor**.
+A simple **workflow** for **agentic engineering**.
 
 </div>
 
@@ -20,35 +20,35 @@ Or copy the skills from this repository into your agent’s `skills` directory.
 
 ## ✨ Why waypoint?
 
-*waypoint* was made for the **agentic engineer** who wants to stay involved throughout the development cycle. It is not designed for unsupervised vibe coding. It borrows the discipline of established software engineering practices while embracing the speed and leverage that modern language models provide. Rather than telling the model *how to think*, it tells it *what to produce*.
+*waypoint* was made for the **agentic engineer** who wants to stay involved throughout the development cycle. It borrows the discipline of established software engineering practices while embracing the speed and leverage that modern language models provide. Rather than telling the model *how to think*, it tells it *what to produce*.
 
-## 🤖 Why Cursor?
-
-This methodology was built around a particular philosophy:
-
-> **AI should amplify the software engineer, not abstract the software engineer away from the code**
-
-With Cursor, the agent operates in the same environment where an engineer already reads, writes and reviews code. An engineer can move fluidly between asking the agent to investigate something and inspecting the implementation themselves. The agent is doing the mechanical work, while the engineer remains responsible for understanding, directing, and reviewing it.
-
-## 🌟 The methodology
+## 🌟 The workflow
 
 1. **Spec**
-   - Use the prompt provided below in a **new** chat
-   - The agent clarifies requirements and writes `.waypoint/{slug}/spec.md`
+   - Use the spec prompt provided below in a **new** chat
+   - The agent clarifies requirements and writes `docs/specs/{slug}.md`
    - You answer questions, review the spec, and approve it
 2. **Plan**
-   - Use the prompt provided below in a **new** chat
+   - Use the plan prompt provided below in the **same** chat as the spec
    - You review and approve the plan
 3. **Build**
-   - Use the prompt provided below in the **same** chat as the plan
+   - Tell the agent to start working in the **same** chat as the plan
    - The agent implements the requested changes
-4. **Review**
-   - Use the prompt provided below in a **new** chat
-   - Another agent reviews the code. You decide which findings to fix
-5. **Dispatch**
-   - Use the prompt provided below in a **new** chat
-   - The agent runs the relevant checks and offers three commit messages
-   - You pick one of the commit messages after which the agent will push the changes
+4. **Automated Testing** (Optional)
+   - Use the test prompt provided below in a **new** chat
+   - The agent tests and verifies the implementation
+5. **Automated Review** (Optional)
+   - Use the review prompt provided below in a **new** chat
+   - One agent reviews the code, another agent validates its findings
+   - You decide which findings to fix
+6. **Manual Test**
+   - You manually test the changes
+7. **Manual Review**
+   - You visualize the diff between the changes and the base branch
+   - You review and approve them or adjust the code accordingly
+8. **Versioning**
+   - Use the versioning prompt provided below
+   - The agent commits, pushes and opens a pull request
 
 > [!TIP]
 > You may tune the skills and prompts to match your team’s conventions and preferences.
@@ -58,57 +58,67 @@ With Cursor, the agent operates in the same environment where an engineer alread
 Spec:
 
 ```text
-/waypoint {slug}
+Create a new branch with a fitting name to start working on {slug}, based on the current develop branch. Use the /waypoint skill, the .scratch folder and available tools to gather all the relevant context you need.
 ```
 
 Plan:
 
 ```text
-Switch to plan mode and create an implementation plan for @.waypoint/{slug}/spec.md
+Switch to plan mode and create an implementation plan for @docs/specs/{slug}.md
+```
+
+Test:
+
+```text
+Test the changes in this branch, if possible E2E, against docs/specs/{slug}.md. Verify the expected flow works and look for edge and error cases. Report your findings when you are done.
 ```
 
 Review:
 
 ```text
-Critically review the changes in this branch. What can be improved, cleaned up or simplified?
+Critically review the changes in this branch. What can be refactored, cleaned up or simplified? Have another agent validate your findings.
 ```
+
+Versioning:
 
 ```text
-/code-review
+Commit the changes of this branch, push it and open a pull request.
 ```
 
-> [!NOTE]
-> Install the [CodeRabbit Cursor plugin](https://cursor.com/marketplace/coderabbit) and the [CodeRabbit CLI](https://docs.coderabbit.ai/cli/cursor-integration) for this to work.
+CodeRabbit (Optional):
 
 ```text
-CodeRabbit reviewed this branch and produced the following findings: {findings}. Verify each finding against current code. Tell me what you think about them.
+CodeRabbit marked some potential issues on the pull request of this branch. Verify each finding against the current code and draft responses for each in chat.
 ```
 
-Dispatch:
+## 🛠️ Tooling
 
-```text
-/dispatch
-```
-
-## 🛠️ Recommended tooling
+### Essentials
 
 | Tool | Purpose |
 | ---- | ------- |
-| [Cursor Plan](https://cursor.com/docs/agent/plan-mode) and Build | Planning and implementation |
-| [Cursor Browser](https://cursor.com/docs/agent/tools/browser) | End-to-end UI verification |
-| [CodeRabbit](https://cursor.com/marketplace/coderabbit) | External code review |
-| [Atlassian MCP](https://support.atlassian.com/atlassian-rovo-mcp-server/docs/getting-started-with-the-atlassian-remote-mcp-server/) | Issue and ticket retrieval |
-| [GitHub MCP](https://github.com/github/github-mcp-server) | Pull requests, checks, and repository context |
+| [Claude Code](https://claude.com/de/product/claude-code) | Agentic Coding Harness |
+| [AGENTS.md](https://agents.md/) | Operational rules and instructions for agents |
+| [GitHub MCP](https://github.com/github/github-mcp-server) | Versioning, Pull requests, CI |
+| [Atlassian MCP](https://claude.com/de/marketplace/connectors/atlassian) | Issue and ticket retrieval |
+
+### Recommended
+
+| Tool | Purpose |
+| ---- | ------- |
+| `CONTEXT.md` file | Domain and product context for agents |
+| `.scratch` folder | Additional files and context for agents, ignored by git |
+| [CodeRabbit](https://www.coderabbit.ai/) | External code review |
 
 ## 📚 Spec
 
 Output of the waypoint skill and stored in the project workspace:
 
 ```text
-.waypoint/{slug}/spec.md
+docs/specs/{slug}.md
 ```
 
-The `{slug}` is derived from an issue key (e.g. `ABC-123`) and ticket information may be retrieved from an external source, such as Jira, using the appropriate MCP.
+The `{slug}` is derived from an issue key (e.g. `ABC-123`) and ticket information may be retrieved from an external source, such as Jira or GitHub, using the appropriate MCP.
 
 ## 💫 Acknowledgments
 

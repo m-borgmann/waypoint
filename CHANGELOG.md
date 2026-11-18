@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.0.0] - 2026-11-18
+
+### Breaking
+
+- Waypoint is a workflow: one skill produces the spec, and plan, build, test, review, and versioning are prompts
+
+### Removed
+
+- Removed `dispatch`
+
+### Changed
+
+- `waypoint` writes `docs/specs/{slug}.md` instead of `.waypoint/{slug}/spec.md`
+- Plan continues in the spec chat. After approval, the skill suggests the plan prompt instead of sending you to a fresh chat
+- Automated testing and automated review run in a new chat. Review asks a second agent to validate findings, and you decide what to fix
+- Manual testing and a manual diff review happen before versioning
+- Versioning commits the branch, pushes it, and opens a pull request
+- CodeRabbit is optional. Findings are checked against the current code, and responses are drafted in chat
+- Claude Code, `AGENTS.md`, GitHub MCP, and Atlassian MCP are the essential tooling. `CONTEXT.md`, `.scratch`, and CodeRabbit are recommended
+
 ## [3.0.0] - 2026-09-23
 
 ### Breaking
@@ -161,6 +181,9 @@ Initial release of *waypoint*, an opinionated workflow for agentic engineering.
 - Repository banner assets (`assets/banner.html`, `assets/banner.webp`)
 - MIT License
 
+[4.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v4.0.0
+[3.0.0]: https://github.com/m-borgmann/waypoint/releases/tag/v3.0.0
+[2.5.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.5.0
 [2.4.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.4.0
 [2.3.1]: https://github.com/m-borgmann/waypoint/releases/tag/v2.3.1
 [2.3.0]: https://github.com/m-borgmann/waypoint/releases/tag/v2.3.0
